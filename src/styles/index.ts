@@ -1,10 +1,12 @@
-// Main stylesheet containing Tailwind CSS base styles, components, and utilities
+// Main stylesheet containing both Tailwind CSS and CSS-only styles
 // This file should be imported in your application's root file
 
 // Import this file in your app:
-// import '@schilling-apps/schilling-widgets-system/dist/styles.css';
+// import 'schilling-widgets-system/dist/styles.css';
 
-export const STYLES_PATH = "./globals.css";
+export const STYLES_PATH_TAILWIND = "./globals.css";
+export const STYLES_PATH_CSS_ONLY = "./schilling-widgets.css";
 
 // Export style-related utilities if needed
-export const getStylesPath = () => STYLES_PATH;
+export const getStylesPath = (useTailwind: boolean = true) =>
+    useTailwind ? STYLES_PATH_TAILWIND : STYLES_PATH_CSS_ONLY;

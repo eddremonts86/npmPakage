@@ -80,8 +80,8 @@ export {
 
 // Theme Provider
 export {
-    configureTheme,
     ThemeProvider,
+    configureTheme,
     useTheme,
 } from "./components/ThemeProvider";
 export type { ThemeConfig } from "./components/ThemeProvider";
@@ -100,13 +100,8 @@ export type {
     TaskStatus,
 } from "./widgets/TaskManager";
 
-// Examples
-export { ComprehensiveExample } from "./examples/comprehensive-example";
-export { InfiniteTableExample } from "./examples/infinite-table-example";
-export { TaskManagerExample } from "./examples/task-manager-example";
-
 // Hooks and utilities
-export { createQueryClient, QueryProvider } from "./hooks/QueryProvider";
+export { QueryProvider, createQueryClient } from "./hooks/QueryProvider";
 export type { QueryProviderProps } from "./hooks/QueryProvider";
 
 export {
@@ -121,7 +116,6 @@ export {
 export { cn, getUseTailwind, mapClasses, setUseTailwind } from "./utils/cn";
 
 // Styles
-export { getStylesPath, STYLES_PATH } from "./styles";
+export { STYLES_PATH, getStylesPath } from "./styles";
 
-// CSS-only styles (for non-Tailwind projects)
-import "./styles/css-only.css";
+// Note: CSS-only styles are available in the package files
