@@ -1,51 +1,51 @@
 # Schilling Widgets System
 
-Una librería completa de componentes UI para aplicaciones React con TypeScript, que funciona **con o sin Tailwind CSS**. Incluye todos los componentes esenciales de Shadcn UI, widgets avanzados y herramientas para gestión de datos con TanStack Query.
+A complete UI components library for React applications with TypeScript, that works **with or without Tailwind CSS**. Includes all essential Shadcn UI components, advanced widgets, and tools for data management with TanStack Query.
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
-### 🎨 Sistema de Estilos Flexible
+### 🎨 Flexible Styling System
 
--   **Tailwind CSS**: Integración completa con configuración personalizada
--   **Modo CSS-only**: Funciona sin Tailwind CSS para máxima flexibilidad
--   **Configuración Runtime**: Cambio dinámico entre modos
--   **Soporte de Temas**: Modo claro/oscuro con colores personalizables
+- ilwind CSS**: Complete integration with custom configuration
+- S-only Mode**: Works without Tailwind CSS for maximum flexibility
+- ntime Configuration**: Dynamic switching between modes
+- eme Support**: Light/dark mode with customizable colors
 
-### 📦 Librería de Componentes Completa
+### 📦 Complete Component Library
 
--   **Componentes Básicos**: Button, Card, Input, Dialog, LoadingSpinner
--   **Componentes Avanzados**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
--   **Widgets Avanzados**: InfiniteTable, TaskManager con virtualización
--   **Shadcn UI Completo**: Conjunto completo de componentes accesibles y modernos
+- sic Components**: Button, Card, Input, Dialog, LoadingSpinner
+- vanced Components**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
+- vanced Widgets**: InfiniteTable, TaskManager with virtualization
+- mplete Shadcn UI**: Full set of accessible and modern components
 
-### 🛠️ Herramientas de Desarrollo
+### 🛠️ Development Tools
 
--   **TypeScript First**: Seguridad de tipos completa e IntelliSense
--   **TanStack Query**: Gestión eficiente de datos y estado
--   **Optimizado**: Tree-shaking y solo carga lo que necesitas
--   **Accesible**: Construido siguiendo mejores prácticas de accesibilidad
+- peScript First**: Complete type safety and IntelliSense
+- nStack Query**: Efficient data and state management
+- timized**: Tree-shaking and only loads what you need
+- cessible**: Built following accessibility best practices
 
-## 📦 Instalación
+## 📦 Installation
 
 ```bash
 npm install @schilling-apps/schilling-widgets-system
 ```
 
-### Dependencias Peer
+### Peer Dependencies
 
-Asegúrate de tener estas dependencias instaladas:
+Make sure you have these dependencies installed:
 
 ```bash
 npm install react react-dom @tanstack/react-query lucide-react
 ```
 
-## 🎯 Modos de Uso
+## 🎯 Usage Modes
 
-### Con Tailwind CSS (Recomendado)
+### With Tailwind CSS (Recommended)
 
-#### 1. Configurar Tailwind
+#### 1. Configure Tailwind
 
-Incluye los componentes de la librería en tu `tailwind.config.js`:
+Include the library components in your `tailwind.config.js`:
 
 ```javascript
 module.exports = {
@@ -98,7 +98,7 @@ En tu archivo CSS principal:
 @tailwind components;
 @tailwind utilities;
 
-/* Variables de tema */
+/* Theme variables */
 :root {
     --primary: 222.2 84% 4.9%;
     --secondary: 210 40% 96%;
@@ -138,7 +138,7 @@ En tu archivo CSS principal:
 }
 ```
 
-#### 3. Usar los Componentes
+#### 3. Use the Components
 
 ```tsx
 import {
@@ -156,10 +156,10 @@ function MyApp() {
         <ThemeProvider>
             <Card>
                 <CardHeader>
-                    <CardTitle>Mi Aplicación</CardTitle>
+                    <CardTitle>My Application</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <Button>Hacer Click</Button>
+                    <Button>Click Me</Button>
                 </CardContent>
             </Card>
         </ThemeProvider>
@@ -167,9 +167,9 @@ function MyApp() {
 }
 ```
 
-### Sin Tailwind CSS
+### Without Tailwind CSS
 
-#### 1. Configurar Modo CSS-only
+#### 1. Configure CSS-only Mode
 
 ```tsx
 import {
@@ -179,7 +179,7 @@ import {
     Card,
 } from "@schilling-apps/schilling-widgets-system";
 
-// Configurar en la raíz de tu aplicación
+// Configure at your application root
 configureTheme({ useTailwind: false });
 
 function App() {
@@ -187,7 +187,7 @@ function App() {
         <ThemeProvider>
             <Card>
                 <CardContent>
-                    <Button>¡Funciona sin Tailwind!</Button>
+                    <Button>Works without Tailwind!</Button>
                 </CardContent>
             </Card>
         </ThemeProvider>
@@ -195,25 +195,25 @@ function App() {
 }
 ```
 
-#### 2. Personalizar Estilos
+#### 2. Customize Styles
 
 ```css
-/* Puedes sobrescribir los estilos predefinidos */
+/* You can override the predefined styles */
 .schilling-button {
     background-color: #your-color;
     border-radius: 8px;
-    /* ... más estilos personalizados */
+    /* ... more custom styles */
 }
 
 .schilling-card {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    /* ... más estilos personalizados */
+    /* ... more custom styles */
 }
 ```
 
-## 🧩 Componentes Disponibles
+## 🧩 Available Components
 
-### Componentes Básicos
+### Basic Components
 
 #### Button
 
@@ -221,19 +221,19 @@ function App() {
 import { Button } from "@schilling-apps/schilling-widgets-system";
 
 <Button variant="default" size="md">
-    Botón Principal
+    Primary Button
 </Button>
 <Button variant="outline" size="sm">
-    Botón Secundario
+    Secondary Button
 </Button>
 <Button variant="destructive" size="lg">
-    Botón Peligroso
+    Dangerous Button
 </Button>
 ```
 
-**Variantes**: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
+**Variants**: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 
-**Tamaños**: `sm`, `md`, `lg`
+**Sizes**: `sm`, `md`, `lg`
 
 #### Card
 
@@ -249,14 +249,14 @@ import {
 
 <Card>
     <CardHeader>
-        <CardTitle>Título de la Tarjeta</CardTitle>
-        <CardDescription>Descripción opcional</CardDescription>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>Optional description</CardDescription>
     </CardHeader>
     <CardContent>
-        <p>Contenido de la tarjeta</p>
+        <p>Card content</p>
     </CardContent>
     <CardFooter>
-        <Button>Acción</Button>
+        <Button>Action</Button>
     </CardFooter>
 </Card>;
 ```
@@ -268,13 +268,13 @@ import { Input } from "@schilling-apps/schilling-widgets-system";
 
 <Input
     type="text"
-    placeholder="Ingresa tu texto"
+    placeholder="Enter your text"
     value={value}
     onChange={(e) => setValue(e.target.value)}
 />;
 ```
 
-### Componentes Avanzados
+### Advanced Components
 
 #### Accordion
 
@@ -291,9 +291,9 @@ import {
     collapsible
 >
     <AccordionItem value="item-1">
-        <AccordionTrigger>¿Qué es Schilling Widgets?</AccordionTrigger>
+        <AccordionTrigger>What is Schilling Widgets?</AccordionTrigger>
         <AccordionContent>
-            Una librería completa de componentes UI para React.
+            A complete UI components library for React.
         </AccordionContent>
     </AccordionItem>
 </Accordion>;
@@ -311,14 +311,14 @@ import {
 
 <Tabs defaultValue="tab1">
     <TabsList>
-        <TabsTrigger value="tab1">Pestaña 1</TabsTrigger>
-        <TabsTrigger value="tab2">Pestaña 2</TabsTrigger>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
     </TabsList>
     <TabsContent value="tab1">
-        <p>Contenido de la pestaña 1</p>
+        <p>Tab 1 content</p>
     </TabsContent>
     <TabsContent value="tab2">
-        <p>Contenido de la pestaña 2</p>
+        <p>Tab 2 content</p>
     </TabsContent>
 </Tabs>;
 ```
@@ -336,20 +336,20 @@ import {
 <TooltipProvider>
     <Tooltip>
         <TooltipTrigger asChild>
-            <Button variant="outline">Hover aquí</Button>
+            <Button variant="outline">Hover here</Button>
         </TooltipTrigger>
         <TooltipContent>
-            <p>Información adicional</p>
+            <p>Additional information</p>
         </TooltipContent>
     </Tooltip>
 </TooltipProvider>;
 ```
 
-## 🎛️ Widgets Avanzados
+## 🎛️ Advanced Widgets
 
 ### TaskManager
 
-Un widget completo para gestión de tareas con funcionalidades avanzadas:
+A complete task management widget with advanced features:
 
 ```tsx
 import { TaskManager, Task } from "@schilling-apps/schilling-widgets-system";
@@ -357,7 +357,7 @@ import { TaskManager, Task } from "@schilling-apps/schilling-widgets-system";
 const tasks: Task[] = [
     {
         id: "task-1",
-        name: "Implementar autenticación",
+        name: "Implement authentication",
         status: "In progress",
         reference: "REF-001",
         phase: "Development",
@@ -365,7 +365,7 @@ const tasks: Task[] = [
         expectedDue: "2025-01-15",
         assignee: "John Doe",
         priority: "high",
-        description: "Implementar sistema de autenticación JWT",
+        description: "Implement JWT authentication system",
         progress: 75,
         tags: ["auth", "security"],
     },
@@ -379,58 +379,58 @@ function MyTaskManager() {
             enableInlineEdit={true}
             enableRealTimeUpdates={true}
             onTaskUpdate={(id, updates) => {
-                console.log("Tarea actualizada:", id, updates);
+                console.log("Task updated:", id, updates);
             }}
             onTaskDelete={(id) => {
-                console.log("Tarea eliminada:", id);
+                console.log("Task deleted:", id);
             }}
             onRefresh={() => {
-                console.log("Refrescar datos");
+                console.log("Refresh data");
             }}
         />
     );
 }
 ```
 
-#### Características del TaskManager
+#### TaskManager Features
 
--   **🚀 Rendimiento**: Virtualización con react-window para grandes volúmenes de datos
--   **📊 Funcionalidades**: Ordenación, filtrado, paginación, columnas personalizables
--   **✏️ Edición**: Edición inline, menús de acción, callbacks completos
--   **🎨 UI/UX**: Tooltips, estados visuales, diseño responsivo, theming
--   **♿ Accesibilidad**: Navegación por teclado, ARIA labels, HTML semántico
+-  Performance**: Virtualization with react-window for large datasets
+-  Features**: Sorting, filtering, pagination, customizable columns
+-  Editing**: Inline editing, action menus, complete callbacks
+-  UI/UX**: Tooltips, visual states, responsive design, theming
+- Accessibility**: Keyboard navigation, ARIA labels, semantic HTML
 
-#### Props del TaskManager
+#### TaskManager Props
 
-| Prop                    | Tipo           | Requerido | Default         | Descripción                 |
-| ----------------------- | -------------- | --------- | --------------- | --------------------------- |
-| `tasks`                 | `Task[]`       | ✅        | -               | Array de tareas a mostrar   |
-| `columns`               | `TaskColumn[]` | ❌        | DEFAULT_COLUMNS | Configuración de columnas   |
-| `loading`               | `boolean`      | ❌        | `false`         | Estado de carga             |
-| `height`                | `number`       | ❌        | `600`           | Altura del componente       |
-| `enableInlineEdit`      | `boolean`      | ❌        | `true`          | Habilitar edición inline    |
-| `enableRealTimeUpdates` | `boolean`      | ❌        | `false`         | Actualizaciones automáticas |
-| `pageSize`              | `number`       | ❌        | `50`            | Elementos por página        |
-| `onTaskUpdate`          | `function`     | ❌        | -               | Callback actualizar tarea   |
-| `onTaskDelete`          | `function`     | ❌        | -               | Callback eliminar tarea     |
-| `onRefresh`             | `function`     | ❌        | -               | Callback refrescar datos    |
+| Prop                    | Type           | Required | Default         | Description                    |
+| ----------------------- | -------------- | -------- | --------------- | ------------------------------ |
+| `tasks`                 | `Task[]`       | ✅       | -               | Array of tasks to display      |
+| `columns`               | `TaskColumn[]` | ❌       | DEFAULT_COLUMNS | Column configuration           |
+| `loading`               | `boolean`      | ❌       | `false`         | Loading state                  |
+| `height`                | `number`       | ❌       | `600`           | Component height               |
+| `enableInlineEdit`      | `boolean`      | ❌       | `true`          | Enable inline editing          |
+| `enableRealTimeUpdates` | `boolean`      | ❌       | `false`         | Automatic updates              |
+| `pageSize`              | `number`       | ❌       | `50`            | Items per page                 |
+| `onTaskUpdate`          | `function`     | ❌       | -               | Task update callback           |
+| `onTaskDelete`          | `function`     | ❌       | -               | Task delete callback           |
+| `onRefresh`             | `function`     | ❌       | -               | Data refresh callback          |
 
-#### Interfaz Task
+#### Task Interface
 
 ```typescript
 interface Task {
-    id: string; // Identificador único
-    name: string; // Nombre de la tarea
-    status: TaskStatus; // Estado actual
-    reference: string; // Referencia/código
-    phase: string; // Fase del proyecto
-    expectedStart: string; // Fecha inicio esperada (ISO)
-    expectedDue: string; // Fecha fin esperada (ISO)
-    assignee: string; // Persona asignada
-    progress?: number; // Progreso (0-100)
+    id: string; // Unique identifier
+    name: string; // Task name
+    status: TaskStatus; // Current status
+    reference: string; // Reference/code
+    phase: string; // Project phase
+    expectedStart: string; // Expected start date (ISO)
+    expectedDue: string; // Expected due date (ISO)
+    assignee: string; // Assigned person
+    progress?: number; // Progress (0-100)
     priority?: "low" | "medium" | "high";
-    description?: string; // Descripción detallada
-    tags?: string[]; // Etiquetas
+    description?: string; // Detailed description
+    tags?: string[]; // Tags
 }
 
 type TaskStatus =
@@ -443,7 +443,7 @@ type TaskStatus =
 
 ### InfiniteTable
 
-Tabla virtualizada para grandes conjuntos de datos:
+Virtualized table for large datasets:
 
 ```tsx
 import { InfiniteTable } from "@schilling-apps/schilling-widgets-system";
@@ -451,7 +451,7 @@ import { InfiniteTable } from "@schilling-apps/schilling-widgets-system";
 const columns = [
     {
         key: "name",
-        header: "Nombre",
+        header: "Name",
         width: 200,
         render: (value) => <strong>{value}</strong>,
     },
@@ -471,11 +471,11 @@ const columns = [
 />;
 ```
 
-## 🔧 Gestión de Datos
+## 🔧 Data Management
 
 ### QueryProvider
 
-Proveedor de TanStack Query con configuración optimizada:
+TanStack Query provider with optimized configuration:
 
 ```tsx
 import { QueryProvider } from "@schilling-apps/schilling-widgets-system";
@@ -489,7 +489,7 @@ function App() {
 }
 ```
 
-### Hooks de API
+### API Hooks
 
 ```tsx
 import {
@@ -497,14 +497,14 @@ import {
     useApiMutation,
 } from "@schilling-apps/schilling-widgets-system";
 
-// Para consultas GET
+// For GET queries
 function UserList() {
     const { data, loading, error } = useApiQuery<User[]>({
         queryKey: ["users"],
         url: "https://api.example.com/users",
     });
 
-    if (loading) return <div>Cargando...</div>;
+    if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
     return (
@@ -516,13 +516,13 @@ function UserList() {
     );
 }
 
-// Para mutaciones POST/PUT/DELETE
+// For POST/PUT/DELETE mutations
 function CreateUser() {
     const { mutate, loading } = useApiMutation<User>({
         url: "https://api.example.com/users",
         method: "POST",
         onSuccess: (data) => {
-            console.log("Usuario creado:", data);
+            console.log("User created:", data);
         },
     });
 
@@ -532,21 +532,21 @@ function CreateUser() {
 
     return (
         <form onSubmit={handleSubmit}>
-            {/* Formulario */}
+            {/* Form */}
             <Button
                 type="submit"
                 disabled={loading}
             >
-                {loading ? "Creando..." : "Crear Usuario"}
+                {loading ? "Creating..." : "Create User"}
             </Button>
         </form>
     );
 }
 ```
 
-## 🎨 Personalización de Temas
+## 🎨 Theme Customization
 
-### Configuración de Tema
+### Theme Configuration
 
 ```tsx
 import {
@@ -554,7 +554,7 @@ import {
     ThemeProvider,
 } from "@schilling-apps/schilling-widgets-system";
 
-// Configuración global
+// Global configuration
 configureTheme({
     useTailwind: true,
     theme: "dark",
@@ -564,7 +564,7 @@ configureTheme({
     },
 });
 
-// Uso con contexto
+// Use with context
 function App() {
     return (
         <ThemeProvider defaultTheme="dark">
@@ -574,7 +574,7 @@ function App() {
 }
 ```
 
-### Hook de Tema
+### Theme Hook
 
 ```tsx
 import { useTheme } from "@schilling-apps/schilling-widgets-system";
@@ -590,9 +590,9 @@ function ThemeToggle() {
 }
 ```
 
-## 📖 Ejemplos Completos
+## 📖 Complete Examples
 
-### Ejemplo Básico
+### Basic Example
 
 ```tsx
 import React from "react";
@@ -615,14 +615,14 @@ function App() {
                 <div className="container mx-auto p-4">
                     <Card>
                         <CardHeader>
-                            <CardTitle>Mi Aplicación</CardTitle>
+                            <CardTitle>My Application</CardTitle>
                             <CardDescription>
-                                Construida con Schilling Widgets System
+                                Built with Schilling Widgets System
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <Input placeholder="Ingresa tu nombre" />
-                            <Button>Enviar</Button>
+                            <Input placeholder="Enter your name" />
+                            <Button>Submit</Button>
                         </CardContent>
                     </Card>
                 </div>
@@ -634,7 +634,7 @@ function App() {
 export default App;
 ```
 
-### Ejemplo con TaskManager
+### TaskManager Example
 
 ```tsx
 import React, { useState, useCallback } from "react";
@@ -647,7 +647,7 @@ import {
 const SAMPLE_TASKS: Task[] = [
     {
         id: "1",
-        name: "Implementar autenticación",
+        name: "Implement authentication",
         status: "In progress",
         reference: "AUTH-001",
         phase: "Development",
@@ -656,12 +656,12 @@ const SAMPLE_TASKS: Task[] = [
         assignee: "John Doe",
         priority: "high",
         progress: 75,
-        description: "Implementar sistema de autenticación JWT",
+        description: "Implement JWT authentication system",
         tags: ["auth", "security"],
     },
     {
         id: "2",
-        name: "Diseñar interfaz de usuario",
+        name: "Design user interface",
         status: "Not started",
         reference: "UI-002",
         phase: "Design",
@@ -670,7 +670,7 @@ const SAMPLE_TASKS: Task[] = [
         assignee: "Jane Smith",
         priority: "medium",
         progress: 0,
-        description: "Crear mockups y prototipos",
+        description: "Create mockups and prototypes",
         tags: ["ui", "design"],
     },
 ];
@@ -695,7 +695,7 @@ function TaskManagerDemo() {
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold mb-6">Gestor de Tareas</h1>
+            <h1 className="text-2xl font-bold mb-6">Task Manager</h1>
             <TaskManager
                 tasks={tasks}
                 height={600}
@@ -703,7 +703,7 @@ function TaskManagerDemo() {
                 enableRealTimeUpdates={true}
                 onTaskUpdate={handleTaskUpdate}
                 onTaskDelete={handleTaskDelete}
-                onRefresh={() => console.log("Refrescar datos")}
+                onRefresh={() => console.log("Refresh data")}
             />
         </div>
     );
@@ -712,27 +712,27 @@ function TaskManagerDemo() {
 export default TaskManagerDemo;
 ```
 
-## 🔨 Desarrollo y Construcción
+## 🔨 Development and Build
 
-### Scripts Disponibles
+### Available Scripts
 
 ```bash
-# Construir el paquete
+# Build the package
 npm run build
 
-# Desarrollo con watch mode
+# Development with watch mode
 npm run dev
 
-# Preparar para publicación
+# Prepare for publication
 npm run prepublishOnly
 ```
 
-### Estructura del Proyecto
+### Project Structure
 
 ```
 schilling-widgets-system/
 ├── src/
-│   ├── components/          # Componentes UI básicos
+│   ├── components/          # Basic UI components
 │   │   ├── Button.tsx
 │   │   ├── Card.tsx
 │   │   ├── Input.tsx
@@ -748,29 +748,29 @@ schilling-widgets-system/
 │   │   ├── Tooltip.tsx
 │   │   ├── LoadingSpinner.tsx
 │   │   └── ThemeProvider.tsx
-│   ├── widgets/            # Widgets avanzados
+│   ├── widgets/            # Advanced widgets
 │   │   ├── InfiniteTable.tsx
 │   │   └── TaskManager.tsx
-│   ├── hooks/              # Hooks personalizados
+│   ├── hooks/              # Custom hooks
 │   │   ├── QueryProvider.tsx
 │   │   └── useApi.ts
-│   ├── utils/              # Utilidades
+│   ├── utils/              # Utilities
 │   │   └── cn.ts
-│   ├── styles/             # Estilos
+│   ├── styles/             # Styles
 │   │   ├── globals.css
 │   │   ├── css-only.css
 │   │   └── index.ts
-│   ├── examples/           # Ejemplos de uso
+│   ├── examples/           # Usage examples
 │   │   ├── comprehensive-example.tsx
 │   │   ├── infinite-table-example.tsx
 │   │   └── task-manager-example.tsx
-│   └── index.ts           # Exportaciones principales
-├── dist/                  # Archivos compilados
+│   └── index.ts           # Main exports
+├── dist/                  # Compiled files
 │   ├── index.cjs.js
 │   ├── index.esm.js
 │   ├── index.d.ts
 │   └── styles.css
-├── docs/                  # Documentación adicional
+├── docs/                  # Additional documentation
 ├── package.json
 ├── tsconfig.json
 ├── rollup.config.js
@@ -778,17 +778,17 @@ schilling-widgets-system/
 └── README.md
 ```
 
-## 🤝 Contribución
+## 🤝 Contributing
 
-### Agregar Nuevos Componentes
+### Adding New Components
 
-1. **Instalar dependencias requeridas**
+1. **Install required dependencies**
 
 ```bash
 npm install @radix-ui/react-[component-name]
 ```
 
-2. **Crear archivo de componente**
+2. **Create component file**
 
 ```tsx
 // src/components/NewComponent.tsx
@@ -817,7 +817,7 @@ export const NewComponent = React.forwardRef<HTMLDivElement, NewComponentProps>(
 NewComponent.displayName = "NewComponent";
 ```
 
-3. **Exportar componente**
+3. **Export component**
 
 ```tsx
 // src/index.ts
@@ -825,69 +825,69 @@ export { NewComponent } from "./components/NewComponent";
 export type { NewComponentProps } from "./components/NewComponent";
 ```
 
-4. **Construir paquete**
+4. **Build package**
 
 ```bash
 npm run build
 ```
 
-### Componentes Radix UI Disponibles
+### Available Radix UI Components
 
--   **Dialog**: `@radix-ui/react-dialog`
--   **Select**: `@radix-ui/react-select`
--   **Checkbox**: `@radix-ui/react-checkbox`
--   **Switch**: `@radix-ui/react-switch`
--   **AlertDialog**: `@radix-ui/react-alert-dialog`
--   **DropdownMenu**: `@radix-ui/react-dropdown-menu`
--   **Tabs**: `@radix-ui/react-tabs`
--   **Tooltip**: `@radix-ui/react-tooltip`
--   **Popover**: `@radix-ui/react-popover`
--   **Accordion**: `@radix-ui/react-accordion`
+- alog**: `@radix-ui/react-dialog`
+- lect**: `@radix-ui/react-select`
+- eckbox**: `@radix-ui/react-checkbox`
+- itch**: `@radix-ui/react-switch`
+- ertDialog**: `@radix-ui/react-alert-dialog`
+- opdownMenu**: `@radix-ui/react-dropdown-menu`
+- bs**: `@radix-ui/react-tabs`
+- oltip**: `@radix-ui/react-tooltip`
+- pover**: `@radix-ui/react-popover`
+- cordion**: `@radix-ui/react-accordion`
 
-## 📄 Licencia
+## 📄 License
 
-MIT License - ver archivo LICENSE para más detalles.
+MIT License - see LICENSE file for more details.
 
-## 🆘 Soporte
+## 🆘 Support
 
-Para reportar problemas o solicitar características:
+To report issues or request features:
 
-1. Crea un issue en el repositorio
-2. Incluye ejemplos de código cuando sea posible
-3. Especifica la versión del paquete que estás usando
-4. Describe el comportamiento esperado vs. el actual
+1. Create an issue in the repository
+2. Include code examples when possible
+3. Specify the package version you're using
+4. Describe expected vs. actual behavior
 
 ## 🔄 Changelog
 
 ### v1.0.0
 
--   ✅ Implementación inicial con todos los componentes básicos
--   ✅ Soporte para Tailwind CSS y CSS-only
--   ✅ Widget TaskManager con funcionalidades avanzadas
--   ✅ Widget InfiniteTable con virtualización
--   ✅ Sistema de temas completo
--   ✅ Integración con TanStack Query
--   ✅ Documentación completa y ejemplos
+- itial implementation with all basic components
+- pport for Tailwind CSS and CSS-only
+- skManager widget with advanced features
+- finiteTable widget with virtualization
+- mplete theme system
+- nStack Query integration
+- mplete documentation and examples
 
-## 📚 Recursos Adicionales
+## 📚 Additional Resources
 
-### Documentación de Dependencias
+### Dependencies Documentation
 
--   [React](https://reactjs.org/docs)
--   [TypeScript](https://www.typescriptlang.org/docs)
--   [Tailwind CSS](https://tailwindcss.com/docs)
--   [TanStack Query](https://tanstack.com/query/latest)
--   [Radix UI](https://www.radix-ui.com/docs)
--   [Lucide Icons](https://lucide.dev/icons)
+- ct](https://reactjs.org/docs)
+- eScript](https://www.typescriptlang.org/docs)
+- lwind CSS](https://tailwindcss.com/docs)
+- Stack Query](https://tanstack.com/query/latest)
+- ix UI](https://www.radix-ui.com/docs)
+- ide Icons](https://lucide.dev/icons)
 
-### Ejemplos de Proyectos
+### Project Examples
 
-Los ejemplos incluidos en el paquete muestran:
+The examples included in the package show:
 
--   **Comprehensive Example**: Uso de todos los componentes
--   **TaskManager Example**: Implementación completa del widget de tareas
--   **InfiniteTable Example**: Tabla con datos de API pública
+- mprehensive Example**: Usage of all components
+- skManager Example**: Complete task widget implementation
+- finiteTable Example**: Table with public API data
 
 ---
 
-**Desarrollado por Schilling Apps** - Una solución completa para tus aplicaciones React.
+**Developed by Schilling Apps** - A complete solution for your React applications.

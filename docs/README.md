@@ -1,38 +1,38 @@
-# Documentación - Schilling Widgets System
+# Documentation - Schilling Widgets System
 
-Esta carpeta contiene la documentación completa del **Schilling Widgets System**.
+This folder contains the complete documentation for the **Schilling Widgets System**.
 
-## 📚 Documentos Disponibles
+## 📚 Available Documents
 
-### 📖 [Documentación Unificada](./DOCUMENTACION_UNIFICADA.md)
+### 📖 [Unified Documentation](./DOCUMENTACION_UNIFICADA.md)
 
-Documento principal que consolida toda la información del sistema:
+Main document that consolidates all system information:
 
--   Instalación y configuración
--   Guía completa de todos los componentes
--   Ejemplos prácticos
--   Referencia de APIs
--   Mejores prácticas
+-   Installation and configuration
+-   Complete guide to all components
+-   Practical examples
+-   API reference
+-   Best practices
 
-### 📋 [README Principal](../README.md)
+### 📋 [Main README](../README.md)
 
-Documento de introducción y referencia rápida:
+Introduction and quick reference document:
 
--   Instalación básica
--   Ejemplos de uso
--   Configuración de temas
--   Estructura del proyecto
+-   Basic installation
+-   Usage examples
+-   Theme configuration
+-   Project structure
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-1. **Instalación**:
+1. **Installation**:
 
     ```bash
     npm install @schilling-apps/schilling-widgets-system
     npm install react react-dom @tanstack/react-query lucide-react
     ```
 
-2. **Uso básico**:
+2. **Basic usage**:
 
     ```tsx
     import {
@@ -42,7 +42,7 @@ Documento de introducción y referencia rápida:
     } from "@schilling-apps/schilling-widgets-system";
     ```
 
-3. **Configuración con Tailwind**:
+3. **Tailwind configuration**:
     ```javascript
     // tailwind.config.js
     module.exports = {
@@ -50,33 +50,33 @@ Documento de introducción y referencia rápida:
             "./src/**/*.{js,ts,jsx,tsx}",
             "./node_modules/@schilling-apps/schilling-widgets-system/dist/**/*.{js,ts,jsx,tsx}",
         ],
-        // ... resto de configuración
+        // ... rest of configuration
     };
     ```
 
-## 🎯 Componentes Principales
+## 🎯 Main Components
 
--   **Básicos**: Button, Card, Input, LoadingSpinner
--   **Avanzados**: Accordion, Tabs, Tooltip, Dialog
+-   **Basic**: Button, Card, Input, LoadingSpinner
+-   **Advanced**: Accordion, Tabs, Tooltip, Dialog
 -   **Widgets**: TaskManager, InfiniteTable
--   **Utilidades**: ThemeProvider, QueryProvider, useApi
+-   **Utilities**: ThemeProvider, QueryProvider, useApi
 
-## 🎨 Temas
+## 🎨 Themes
 
-El sistema soporta:
+The system supports:
 
--   **Tailwind CSS**: Modo completo con todas las funcionalidades
--   **CSS-only**: Modo independiente sin necesidad de Tailwind
--   **Temas**: Light/Dark con personalización completa
+-   **Tailwind CSS**: Full mode with all features
+-   **CSS-only**: Independent mode without Tailwind requirement
+-   **Themes**: Light/Dark with complete customization
 
-## 📞 Soporte
+## 📞 Support
 
-Para reportar problemas o solicitar características:
+To report issues or request features:
 
--   Crea un issue en el repositorio
--   Incluye ejemplos de código
--   Especifica la versión utilizada
+-   Create an issue in the repository
+-   Include code examples
+-   Specify the version used
 
 ---
 
-**Schilling Widgets System v1.0.0** - Una solución completa para aplicaciones React
+**Schilling Widgets System v1.0.0** - A complete solution for React applications

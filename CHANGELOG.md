@@ -1,62 +1,62 @@
 # Changelog
 
-Todos los cambios notables de este proyecto serán documentados en este archivo.
+All notable changes to this project will be documented in this file.
 
-El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
-y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.0.0] - 2025-01-03
 
-### ✨ Agregado
+### ✨ Added
 
-#### Componentes Básicos
+#### Basic Components
 
--   **Button** - Componente de botón con múltiples variantes (default, destructive, outline, secondary, ghost, link) y tamaños (sm, md, lg)
--   **Card** - Contenedor con header, content y footer
--   **Input** - Campo de entrada con soporte para diferentes tipos
--   **LoadingSpinner** - Indicador de carga animado
--   **Dialog** - Modal dialogs con overlay
+-   **Button** - Button component with multiple variants (default, destructive, outline, secondary, ghost, link) and sizes (sm, md, lg)
+-   **Card** - Container with header, content and footer
+-   **Input** - Input field with support for different types
+-   **LoadingSpinner** - Animated loading indicator
+-   **Dialog** - Modal dialogs with overlay
 
-#### Componentes Avanzados
+#### Advanced Components
 
--   **Accordion** - Paneles colapsables con soporte para single/multiple
--   **AlertDialog** - Diálogos de confirmación
--   **Avatar** - Imágenes de perfil con fallbacks
--   **Badge** - Etiquetas con variantes de color
--   **Checkbox** - Casillas de verificación
--   **DropdownMenu** - Menús desplegables con opciones
--   **Select** - Selectores dropdown
--   **Tabs** - Navegación por pestañas
--   **Tooltip** - Información contextual al hover
+-   **Accordion** - Collapsible panels with single/multiple support
+-   **AlertDialog** - Confirmation dialogs
+-   **Avatar** - Profile images with fallbacks
+-   **Badge** - Tags with color variants
+-   **Checkbox** - Checkboxes
+-   **DropdownMenu** - Dropdown menus with options
+-   **Select** - Dropdown selectors
+-   **Tabs** - Tab navigation
+-   **Tooltip** - Contextual information on hover
 
-#### Widgets Especializados
+#### Specialized Widgets
 
--   **TaskManager** - Widget completo para gestión de tareas con:
-    -   Virtualización con react-window para rendimiento
-    -   Filtrado avanzado (texto, estado, asignado)
-    -   Ordenación por columnas
-    -   Edición inline de tareas
-    -   Menús de acción contextuales
-    -   Paginación configurable
-    -   Tooltips informativos
-    -   Navegación por teclado completa
-    -   Soporte para columnas personalizadas
--   **InfiniteTable** - Tabla virtualizada para grandes datasets con:
-    -   Renderizado eficiente de miles de filas
-    -   Scroll infinito
-    -   Ordenación por columnas
-    -   Renderizado personalizado de celdas
+-   **TaskManager** - Complete task management widget with:
+    -   Virtualization with react-window for performance
+    -   Advanced filtering (text, status, assignee)
+    -   Column sorting
+    -   Inline task editing
+    -   Contextual action menus
+    -   Configurable pagination
+    -   Informative tooltips
+    -   Complete keyboard navigation
+    -   Custom column support
+-   **InfiniteTable** - Virtualized table for large datasets with:
+    -   Efficient rendering of thousands of rows
+    -   Infinite scroll
+    -   Column sorting
+    -   Custom cell rendering
 
-#### Sistema de Temas
+#### Theme System
 
--   **ThemeProvider** - Proveedor de contexto para temas
--   **configureTheme** - Configuración global de temas
--   **useTheme** - Hook para gestión de temas
--   Soporte completo para modo claro/oscuro
--   Variables CSS personalizables
--   Compatibilidad con Tailwind CSS y CSS-only
+-   **ThemeProvider** - Context provider for themes
+-   **configureTheme** - Global theme configuration
+-   **useTheme** - Hook for theme management
+-   Complete support for light/dark mode
+-   Customizable CSS variables
+-   Compatibility with Tailwind CSS and CSS-only
 
-#### Gestión de Datos
+#### Data Management
 
 -   **QueryProvider** - Proveedor de TanStack Query optimizado
 -   **useApiQuery** - Hook para consultas GET con caché
@@ -67,72 +67,72 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
 #### Utilidades
 
--   **cn** - Función para combinar clases CSS con soporte condicional
--   Mapeo automático entre clases Tailwind y CSS-only
--   Configuración runtime para cambio de modos
+-   **cn** - Function to combine CSS classes with conditional support
+-   Automatic mapping between Tailwind classes and CSS-only
+-   Runtime configuration for mode switching
 
-#### Sistema de Estilos Dual
+#### Dual Styling System
 
--   **Modo Tailwind CSS** - Integración completa con Tailwind
--   **Modo CSS-only** - Estilos independientes sin dependencias
--   Cambio dinámico entre modos en runtime
--   Variables CSS para personalización de colores
+-   **Tailwind CSS Mode** - Complete integration with Tailwind
+-   **CSS-only Mode** - Independent styles without dependencies
+-   Dynamic switching between modes at runtime
+-   CSS variables for color customization
 
-#### Documentación y Ejemplos
+#### Documentation and Examples
 
--   README unificado con guía completa
--   Documentación técnica detallada
--   Ejemplos de uso para todos los componentes
--   Ejemplos prácticos de aplicaciones completas
--   Guías de migración y mejores prácticas
+-   Unified README with complete guide
+-   Detailed technical documentation
+-   Usage examples for all components
+-   Practical examples of complete applications
+-   Migration guides and best practices
 
 #### Accesibilidad
 
--   Navegación completa por teclado en todos los componentes
--   Etiquetas ARIA apropiadas
--   Semántica HTML correcta
--   Soporte para lectores de pantalla
--   Contrastes que cumplen WCAG 2.1
+-   Complete keyboard navigation in all components
+-   Appropriate ARIA labels
+-   Correct HTML semantics
+-   Screen reader support
+-   Contrasts that meet WCAG 2.1
 
 #### TypeScript
 
--   Tipado completo de todos los componentes y props
--   Interfaces exportadas para extensibilidad
+-   Complete typing of all components and props
+-   Exported interfaces for extensibility
 -   Tipos genéricos para APIs flexibles
 -   IntelliSense completo en IDEs
 
 #### Rendimiento
 
--   Tree-shaking para importaciones optimizadas
--   Memoización de componentes críticos
--   Virtualización para grandes datasets
--   Lazy loading de componentes pesados
+-   Tree-shaking for optimized imports
+-   Memoization of critical components
+-   Virtualization for large datasets
+-   Lazy loading of heavy components
 
-#### Construcción y Desarrollo
+#### Build and Development
 
--   Configuración de Rollup para múltiples formatos (CJS, ESM)
--   Sourcemaps para debugging
--   Configuración de TypeScript optimizada
--   Scripts de desarrollo con watch mode
+-   Rollup configuration for multiple formats (CJS, ESM)
+-   Sourcemaps for debugging
+-   Optimized TypeScript configuration
+-   Development scripts with watch mode
 
-### 🔧 Configuración
+### 🔧 Configuration
 
-#### Dependencias Peer
+#### Peer Dependencies
 
 -   react ^18.0.0
 -   react-dom ^18.0.0
 -   @tanstack/react-query ^5.0.0
 -   lucide-react ^0.300.0
 
-#### Dependencias de Desarrollo
+#### Development Dependencies
 
--   @radix-ui/\* - Componentes base accesibles
--   react-window - Virtualización
--   class-variance-authority - Manejo de variantes
--   clsx - Utilidad para clases CSS
--   tailwind-merge - Combinación de clases Tailwind
+-   @radix-ui/\* - Accessible base components
+-   react-window - Virtualization
+-   class-variance-authority - Variant management
+-   clsx - CSS class utility
+-   tailwind-merge - Tailwind class combination
 
-### 📦 Distribución
+### 📦 Distribution
 
 #### Formatos de Salida
 
@@ -147,17 +147,17 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 dist/
 ├── index.cjs.js       # Formato CommonJS
 ├── index.esm.js       # Formato ES Modules
-├── index.d.ts         # Definiciones TypeScript
-├── styles.css         # Estilos compilados
-├── components/        # Componentes individuales
-├── widgets/          # Widgets especializados
-├── hooks/            # Hooks exportados
-└── utils/            # Utilidades exportadas
+├── index.d.ts         # TypeScript definitions
+├── styles.css         # Compiled styles
+├── components/        # Individual components
+├── widgets/          # Specialized widgets
+├── hooks/            # Exported hooks
+└── utils/            # Exported utilities
 ```
 
-### 🎯 Compatibilidad
+### 🎯 Compatibility
 
-#### Navegadores Soportados
+#### Supported Browsers
 
 -   Chrome >= 90
 -   Firefox >= 88
@@ -173,13 +173,13 @@ dist/
 
 ### 📚 Recursos
 
-#### Documentación
+#### Documentation
 
--   [README Principal](./README.md)
--   [Documentación Unificada](./docs/DOCUMENTACION_UNIFICADA.md)
--   [Ejemplos de Uso](./src/examples/)
+-   [Main README](./README.md)
+-   [Unified Documentation](./docs/DOCUMENTACION_UNIFICADA.md)
+-   [Usage Examples](./src/examples/)
 
-#### Enlaces Útiles
+#### Useful Links
 
 -   [TanStack Query](https://tanstack.com/query/latest)
 -   [Radix UI](https://www.radix-ui.com/docs)
@@ -188,34 +188,34 @@ dist/
 
 ---
 
-### 📝 Notas de Versión
+### 📝 Version Notes
 
-Esta es la versión inicial del **Schilling Widgets System**. Incluye todos los componentes esenciales para construir aplicaciones React modernas con un diseño consistente y accesible.
+This is the initial version of the **Schilling Widgets System**. It includes all essential components for building modern React applications with consistent and accessible design.
 
-El sistema está diseñado para ser:
+The system is designed to be:
 
--   **Flexible**: Funciona con o sin Tailwind CSS
--   **Completo**: Incluye desde componentes básicos hasta widgets avanzados
--   **Performante**: Optimizado para aplicaciones de gran escala
--   **Accesible**: Cumple con estándares de accesibilidad
--   **Mantenible**: Arquitectura clara y documentación completa
+-   **Flexible**: Works with or without Tailwind CSS
+-   **Complete**: Includes from basic components to advanced widgets
+-   **Performant**: Optimized for large-scale applications
+-   **Accessible**: Meets accessibility standards
+-   **Maintainable**: Clear architecture and complete documentation
 
-### 🔮 Próximas Versiones
+### 🔮 Future Versions
 
-#### v1.1.0 (Planificado)
+#### v1.1.0 (Planned)
 
--   Componentes adicionales (Form, Calendar, DataTable)
--   Más opciones de personalización de temas
--   Mejoras en rendimiento
--   Tests automatizados
+-   Additional components (Form, Calendar, DataTable)
+-   More theme customization options
+-   Performance improvements
+-   Automated tests
 
-#### v1.2.0 (Planificado)
+#### v1.2.0 (Planned)
 
--   Soporte para React 19
--   Componentes de navegación (Breadcrumb, Pagination)
--   Sistema de notificaciones (Toast, Alert)
--   Documentación interactiva
+-   React 19 support
+-   Navigation components (Breadcrumb, Pagination)
+-   Notification system (Toast, Alert)
+-   Interactive documentation
 
 ---
 
-**Desarrollado por Schilling Apps** - v1.0.0
+**Developed by Schilling Apps** - v1.0.0
