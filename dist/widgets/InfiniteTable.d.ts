@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 export interface TableColumn<T = any> {
     key: string;
     header: string;

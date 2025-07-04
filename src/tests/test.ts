@@ -1,6 +1,6 @@
 export const testFunction = () => {
-    return "Hello World";
+  return 'Hello World';
 };
 
 // Import TaskManager integration test
-export { mockTasks, testTaskManagerIntegration } from "./task-manager.test";
+export { mockTasks, testTaskManagerIntegration } from './task-manager.test';

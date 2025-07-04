@@ -6,24 +6,24 @@ A complete UI components library for React applications with TypeScript, that wo
 
 ### 🎨 Flexible Styling System
 
-- ilwind CSS**: Complete integration with custom configuration
-- S-only Mode**: Works without Tailwind CSS for maximum flexibility
-- ntime Configuration**: Dynamic switching between modes
-- eme Support**: Light/dark mode with customizable colors
+-   **Tailwind CSS**: Complete integration with custom configuration
+-   **CSS-only Mode**: Works without Tailwind CSS for maximum flexibility
+-   **Runtime Configuration**: Dynamic switching between modes
+-   **Theme Support**: Light/dark mode with customizable colors
 
 ### 📦 Complete Component Library
 
-- sic Components**: Button, Card, Input, Dialog, LoadingSpinner
-- vanced Components**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
-- vanced Widgets**: InfiniteTable, TaskManager with virtualization
-- mplete Shadcn UI**: Full set of accessible and modern components
+-   **Basic Components**: Button, Card, Input, Dialog, LoadingSpinner
+-   **Advanced Components**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
+-   **Advanced Widgets**: InfiniteTable, TaskManager with virtualization
+-   **Complete Shadcn UI**: Full set of accessible and modern components
 
 ### 🛠️ Development Tools
 
-- peScript First**: Complete type safety and IntelliSense
-- nStack Query**: Efficient data and state management
-- timized**: Tree-shaking and only loads what you need
-- cessible**: Built following accessibility best practices
+-   **TypeScript First**: Complete type safety and IntelliSense
+-   **TanStack Query**: Efficient data and state management (bundled)
+-   **Optimized**: Tree-shaking and only loads what you need
+-   **Accessible**: Built following accessibility best practices
 
 ## 📦 Installation
 
@@ -33,10 +33,85 @@ npm install @schilling-apps/schilling-widgets-system
 
 ### Peer Dependencies
 
-Make sure you have these dependencies installed:
+Only React and ReactDOM are required:
 
 ```bash
-npm install react react-dom @tanstack/react-query lucide-react
+npm install react react-dom
+```
+
+**That's it!** All other dependencies (TanStack Query, Lucide React, Tailwind CSS utilities, etc.) are bundled within the package.
+
+## 🎯 Quick Start
+
+### Simple Usage
+
+```tsx
+import React from "react";
+import {
+    SchillingWidgets,
+    Button,
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from "@schilling-apps/schilling-widgets-system";
+
+function App() {
+    return (
+        <SchillingWidgets>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Welcome to Schilling Widgets</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Button>Get Started</Button>
+                </CardContent>
+            </Card>
+        </SchillingWidgets>
+    );
+}
+
+export default App;
+```
+
+### Advanced Usage with TaskManager
+
+```tsx
+import React from "react";
+import {
+    SchillingWidgets,
+    TaskManager,
+    Task,
+} from "@schilling-apps/schilling-widgets-system";
+
+const sampleTasks: Task[] = [
+    {
+        id: "1",
+        name: "Setup project",
+        status: "In progress",
+        reference: "PROJ-001",
+        phase: "Development",
+        expectedStart: "2025-01-01",
+        expectedDue: "2025-01-15",
+        assignee: "John Doe",
+        priority: "high",
+        progress: 50,
+    },
+];
+
+function App() {
+    return (
+        <SchillingWidgets>
+            <TaskManager
+                tasks={sampleTasks}
+                height={600}
+                enableInlineEdit={true}
+            />
+        </SchillingWidgets>
+    );
+}
+
+export default App;
 ```
 
 ## 🎯 Usage Modes
@@ -394,26 +469,26 @@ function MyTaskManager() {
 
 #### TaskManager Features
 
--  Performance**: Virtualization with react-window for large datasets
--  Features**: Sorting, filtering, pagination, customizable columns
--  Editing**: Inline editing, action menus, complete callbacks
--  UI/UX**: Tooltips, visual states, responsive design, theming
-- Accessibility**: Keyboard navigation, ARIA labels, semantic HTML
+-   Performance\*\*: Virtualization with react-window for large datasets
+-   Features\*\*: Sorting, filtering, pagination, customizable columns
+-   Editing\*\*: Inline editing, action menus, complete callbacks
+-   UI/UX\*\*: Tooltips, visual states, responsive design, theming
+-   Accessibility\*\*: Keyboard navigation, ARIA labels, semantic HTML
 
 #### TaskManager Props
 
-| Prop                    | Type           | Required | Default         | Description                    |
-| ----------------------- | -------------- | -------- | --------------- | ------------------------------ |
-| `tasks`                 | `Task[]`       | ✅       | -               | Array of tasks to display      |
-| `columns`               | `TaskColumn[]` | ❌       | DEFAULT_COLUMNS | Column configuration           |
-| `loading`               | `boolean`      | ❌       | `false`         | Loading state                  |
-| `height`                | `number`       | ❌       | `600`           | Component height               |
-| `enableInlineEdit`      | `boolean`      | ❌       | `true`          | Enable inline editing          |
-| `enableRealTimeUpdates` | `boolean`      | ❌       | `false`         | Automatic updates              |
-| `pageSize`              | `number`       | ❌       | `50`            | Items per page                 |
-| `onTaskUpdate`          | `function`     | ❌       | -               | Task update callback           |
-| `onTaskDelete`          | `function`     | ❌       | -               | Task delete callback           |
-| `onRefresh`             | `function`     | ❌       | -               | Data refresh callback          |
+| Prop                    | Type           | Required | Default         | Description               |
+| ----------------------- | -------------- | -------- | --------------- | ------------------------- |
+| `tasks`                 | `Task[]`       | ✅       | -               | Array of tasks to display |
+| `columns`               | `TaskColumn[]` | ❌       | DEFAULT_COLUMNS | Column configuration      |
+| `loading`               | `boolean`      | ❌       | `false`         | Loading state             |
+| `height`                | `number`       | ❌       | `600`           | Component height          |
+| `enableInlineEdit`      | `boolean`      | ❌       | `true`          | Enable inline editing     |
+| `enableRealTimeUpdates` | `boolean`      | ❌       | `false`         | Automatic updates         |
+| `pageSize`              | `number`       | ❌       | `50`            | Items per page            |
+| `onTaskUpdate`          | `function`     | ❌       | -               | Task update callback      |
+| `onTaskDelete`          | `function`     | ❌       | -               | Task delete callback      |
+| `onRefresh`             | `function`     | ❌       | -               | Data refresh callback     |
 
 #### Task Interface
 
@@ -473,21 +548,37 @@ const columns = [
 
 ## 🔧 Data Management
 
-### QueryProvider
+### Data Management (Built-in)
 
-TanStack Query provider with optimized configuration:
+TanStack Query is included and configured automatically with `SchillingWidgets`. No manual setup required!
 
 ```tsx
-import { QueryProvider } from "@schilling-apps/schilling-widgets-system";
+import { SchillingWidgets } from "@schilling-apps/schilling-widgets-system";
 
 function App() {
     return (
-        <QueryProvider>
+        <SchillingWidgets>
             <MyApplication />
-        </QueryProvider>
+        </SchillingWidgets>
     );
 }
 ```
+
+**Note**: If you're already using TanStack Query in your app, you can disable the internal provider:
+
+```tsx
+import { SchillingWidgets } from "@schilling-apps/schilling-widgets-system";
+
+function App() {
+    return (
+        <SchillingWidgets disableQueryProvider={true}>
+            <MyApplication />
+        </SchillingWidgets>
+    );
+}
+```
+
+````
 
 ### API Hooks
 
@@ -542,7 +633,7 @@ function CreateUser() {
         </form>
     );
 }
-```
+````
 
 ## 🎨 Theme Customization
 
@@ -597,6 +688,7 @@ function ThemeToggle() {
 ```tsx
 import React from "react";
 import {
+    SchillingWidgets,
     ThemeProvider,
     Card,
     CardContent,
@@ -605,12 +697,11 @@ import {
     CardTitle,
     Button,
     Input,
-    QueryProvider,
 } from "@schilling-apps/schilling-widgets-system";
 
 function App() {
     return (
-        <QueryProvider>
+        <SchillingWidgets>
             <ThemeProvider defaultTheme="light">
                 <div className="container mx-auto p-4">
                     <Card>
@@ -627,7 +718,7 @@ function App() {
                     </Card>
                 </div>
             </ThemeProvider>
-        </QueryProvider>
+        </SchillingWidgets>
     );
 }
 
@@ -833,16 +924,16 @@ npm run build
 
 ### Available Radix UI Components
 
-- alog**: `@radix-ui/react-dialog`
-- lect**: `@radix-ui/react-select`
-- eckbox**: `@radix-ui/react-checkbox`
-- itch**: `@radix-ui/react-switch`
-- ertDialog**: `@radix-ui/react-alert-dialog`
-- opdownMenu**: `@radix-ui/react-dropdown-menu`
-- bs**: `@radix-ui/react-tabs`
-- oltip**: `@radix-ui/react-tooltip`
-- pover**: `@radix-ui/react-popover`
-- cordion**: `@radix-ui/react-accordion`
+-   alog\*\*: `@radix-ui/react-dialog`
+-   lect\*\*: `@radix-ui/react-select`
+-   eckbox\*\*: `@radix-ui/react-checkbox`
+-   itch\*\*: `@radix-ui/react-switch`
+-   ertDialog\*\*: `@radix-ui/react-alert-dialog`
+-   opdownMenu\*\*: `@radix-ui/react-dropdown-menu`
+-   bs\*\*: `@radix-ui/react-tabs`
+-   oltip\*\*: `@radix-ui/react-tooltip`
+-   pover\*\*: `@radix-ui/react-popover`
+-   cordion\*\*: `@radix-ui/react-accordion`
 
 ## 📄 License
 
@@ -861,32 +952,32 @@ To report issues or request features:
 
 ### v1.0.0
 
-- itial implementation with all basic components
-- pport for Tailwind CSS and CSS-only
-- skManager widget with advanced features
-- finiteTable widget with virtualization
-- mplete theme system
-- nStack Query integration
-- mplete documentation and examples
+-   itial implementation with all basic components
+-   pport for Tailwind CSS and CSS-only
+-   skManager widget with advanced features
+-   finiteTable widget with virtualization
+-   mplete theme system
+-   nStack Query integration
+-   mplete documentation and examples
 
 ## 📚 Additional Resources
 
 ### Dependencies Documentation
 
-- ct](https://reactjs.org/docs)
-- eScript](https://www.typescriptlang.org/docs)
-- lwind CSS](https://tailwindcss.com/docs)
-- Stack Query](https://tanstack.com/query/latest)
-- ix UI](https://www.radix-ui.com/docs)
-- ide Icons](https://lucide.dev/icons)
+-   ct](https://reactjs.org/docs)
+-   eScript](https://www.typescriptlang.org/docs)
+-   lwind CSS](https://tailwindcss.com/docs)
+-   Stack Query](https://tanstack.com/query/latest)
+-   ix UI](https://www.radix-ui.com/docs)
+-   ide Icons](https://lucide.dev/icons)
 
 ### Project Examples
 
 The examples included in the package show:
 
-- mprehensive Example**: Usage of all components
-- skManager Example**: Complete task widget implementation
-- finiteTable Example**: Table with public API data
+-   mprehensive Example\*\*: Usage of all components
+-   skManager Example\*\*: Complete task widget implementation
+-   finiteTable Example\*\*: Table with public API data
 
 ---
 

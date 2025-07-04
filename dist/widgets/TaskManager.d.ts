@@ -1,5 +1,5 @@
-import React from "react";
-export type TaskStatus = "Overdue" | "Blocked" | "In progress" | "On hold" | "Not started";
+import React from 'react';
+export type TaskStatus = 'Overdue' | 'Blocked' | 'In progress' | 'On hold' | 'Not started';
 export interface Task {
     id: string;
     name: string;
@@ -10,7 +10,7 @@ export interface Task {
     expectedDue: string;
     assignee: string;
     progress?: number;
-    priority?: "low" | "medium" | "high";
+    priority?: 'low' | 'medium' | 'high';
     description?: string;
     tags?: string[];
 }
@@ -25,7 +25,7 @@ export interface TaskColumn {
 }
 export interface SortConfig {
     key: keyof Task;
-    direction: "asc" | "desc";
+    direction: 'asc' | 'desc';
 }
 export interface FilterConfig {
     status?: TaskStatus[];
@@ -34,7 +34,7 @@ export interface FilterConfig {
         start?: string;
         end?: string;
     };
-    priority?: ("low" | "medium" | "high")[];
+    priority?: ('low' | 'medium' | 'high')[];
     search?: string;
 }
 export interface TaskManagerProps {
@@ -46,8 +46,8 @@ export interface TaskManagerProps {
     enableInlineEdit?: boolean;
     enableRealTimeUpdates?: boolean;
     pageSize?: number;
-    onTaskUpdate?: (taskId: string, updates: Partial<Task>) => void;
-    onTaskDelete?: (taskId: string) => void;
+    onTaskUpdate?: (_taskId: string, _updates: Partial<Task>) => void;
+    onTaskDelete?: (_taskId: string) => void;
     onRefresh?: () => void;
     onOpenTaskManager?: () => void;
 }

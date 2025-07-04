@@ -5,6 +5,95 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-07-04
+
+### 🎉 MAJOR RELEASE - Self-Contained Package
+
+This is a major version that significantly improves the developer experience by eliminating external dependency requirements.
+
+#### 🔥 Breaking Changes
+
+-   **Dependencies**: Moved all dependencies (except React and ReactDOM) from `peerDependencies` to bundled `dependencies`
+-   **Installation**: Now only requires `react` and `react-dom` as peer dependencies
+-   **Bundle Size**: Package size increased to ~785KB (from ~100KB) due to bundled dependencies
+
+#### ✨ New Features
+
+-   **SchillingWidgets Component**: New root wrapper component that automatically configures TanStack Query
+-   **Auto-Configuration**: TanStack Query is now automatically configured - no manual setup required
+-   **Self-Contained**: All dependencies (TanStack Query, Lucide React, Radix UI, etc.) are now bundled
+-   **Simplified API**: Users can now start using components immediately after installation
+
+#### 📦 Bundled Dependencies
+
+The following dependencies are now included in the package:
+
+-   `@tanstack/react-query`
+-   `lucide-react`
+-   All `@radix-ui/react-*` components
+-   `class-variance-authority`
+-   `clsx`
+-   `tailwind-merge`
+-   `react-window`
+
+#### 🛠️ Developer Experience Improvements
+
+-   **One-Step Installation**: `npm install @schilling-apps/schilling-widgets-system` + React deps
+-   **Zero Configuration**: No need to install or configure TanStack Query manually
+-   **No Version Conflicts**: All internal dependencies are controlled and tested together
+-   **Backward Compatibility**: Existing component APIs remain unchanged
+
+#### 📖 Documentation Updates
+
+-   Updated README with simplified installation instructions
+-   Added Quick Start section with immediate usage examples
+-   Updated all code examples to use the new `SchillingWidgets` wrapper
+-   Removed references to manual dependency installation
+
+#### 🔧 Build System Changes
+
+-   Updated Rollup configuration to bundle all dependencies except React/ReactDOM
+-   Removed `peerDepsExternal` plugin
+-   Configured proper externalization of only React dependencies
+
+#### 🚀 Migration Guide
+
+**Before (v1.x):**
+
+```bash
+npm install @schilling-apps/schilling-widgets-system
+npm install @tanstack/react-query lucide-react
+```
+
+```tsx
+import {
+    QueryProvider,
+    TaskManager,
+} from "@schilling-apps/schilling-widgets-system";
+
+<QueryProvider>
+    <TaskManager tasks={tasks} />
+</QueryProvider>;
+```
+
+**After (v2.x):**
+
+```bash
+npm install @schilling-apps/schilling-widgets-system
+# Only React and ReactDOM needed as peer deps
+```
+
+```tsx
+import {
+    SchillingWidgets,
+    TaskManager,
+} from "@schilling-apps/schilling-widgets-system";
+
+<SchillingWidgets>
+    <TaskManager tasks={tasks} />
+</SchillingWidgets>;
+```
+
 ## [1.0.0] - 2025-01-03
 
 ### ✨ Added

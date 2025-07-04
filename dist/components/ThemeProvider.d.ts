@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 interface ThemeConfig {
     useTailwind?: boolean;
-    theme?: "light" | "dark";
+    theme?: 'light' | 'dark';
     colors?: {
         primary?: string;
         secondary?: string;

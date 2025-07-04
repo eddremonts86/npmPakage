@@ -4,55 +4,74 @@ This folder contains the complete documentation for the **Schilling Widgets Syst
 
 ## 📚 Available Documents
 
-### 📖 [Unified Documentation](./DOCUMENTACION_UNIFICADA.md)
+### 📖 [Main README](../README.md)
 
-Main document that consolidates all system information:
+Primary documentation with v2.0.0 updates:
 
--   Installation and configuration
--   Complete guide to all components
--   Practical examples
+-   **Simplified Installation**: Only React dependencies required
+-   **Quick Start Guide**: Using SchillingWidgets wrapper
+-   Complete component library reference
+-   Theme configuration and examples
+
+### 🔄 [Migration Guide v2.0.0](./MIGRATION_V2.md) **NEW**
+
+Essential guide for upgrading from v1.x to v2.0.0:
+
+-   Breaking changes overview
+-   Step-by-step migration instructions
+-   API compatibility information
+-   Advanced configuration options
+
+### 📖 [Unified Documentation](./UNIFIED_DOCUMENTATION.md)
+
+Comprehensive documentation (English):
+
+-   Complete component guide
+-   Advanced patterns and examples
 -   API reference
--   Best practices
+-   Performance considerations
 
-### 📋 [Main README](../README.md)
+### � [Documentación Unificada](./DOCUMENTACION_UNIFICADA.md)
 
-Introduction and quick reference document:
+Documentación completa (Español):
 
--   Basic installation
--   Usage examples
--   Theme configuration
--   Project structure
+-   Guía completa de componentes
+-   Patrones avanzados y ejemplos
+-   Referencia de API
+-   Consideraciones de rendimiento
 
 ## 🚀 Quick Start
 
 1. **Installation**:
 
-    ```bash
-    npm install @schilling-apps/schilling-widgets-system
-    npm install react react-dom @tanstack/react-query lucide-react
-    ```
+```bash
+npm install @schilling-apps/schilling-widgets-system
+# Only React and ReactDOM needed as peer dependencies!
+```
 
 2. **Basic usage**:
 
-    ```tsx
-    import {
-        Button,
-        Card,
-        TaskManager,
-    } from "@schilling-apps/schilling-widgets-system";
-    ```
+```tsx
+import {
+    SchillingWidgets,
+    Button,
+    Card,
+    TaskManager,
+} from "@schilling-apps/schilling-widgets-system";
 
-3. **Tailwind configuration**:
-    ```javascript
-    // tailwind.config.js
-    module.exports = {
-        content: [
-            "./src/**/*.{js,ts,jsx,tsx}",
-            "./node_modules/@schilling-apps/schilling-widgets-system/dist/**/*.{js,ts,jsx,tsx}",
-        ],
-        // ... rest of configuration
-    };
-    ```
+function App() {
+    return (
+        <SchillingWidgets>
+            <Card>
+                <Button>Hello World!</Button>
+                <TaskManager tasks={tasks} />
+            </Card>
+        </SchillingWidgets>
+    );
+}
+```
+
+3. **That's it!** All dependencies (TanStack Query, Lucide React, etc.) are bundled automatically.
 
 ## 🎯 Main Components
 

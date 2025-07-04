@@ -1,2 +1,2 @@
 // Re-export styles utilities
-export * from "./styles/index";
+export * from './styles/index';

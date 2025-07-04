@@ -1,5 +1,5 @@
-import * as DialogPrimitive from "@radix-ui/react-dialog";
-import * as React from "react";
+import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as React from 'react';
 declare const Dialog: React.FC<DialogPrimitive.DialogProps>;
 declare const DialogTrigger: React.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const DialogPortal: React.FC<DialogPrimitive.DialogPortalProps>;
