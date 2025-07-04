@@ -1,101 +1,80 @@
 # Documentation - Schilling Widgets System
 
-This folder contains the complete documentation for the **Schilling Widgets System**.
+Welcome to the **Schilling Widgets System** documentation! This folder contains all the guides you need to use the package effectively.
 
-## 📚 Available Documents
+## 📚 Documentation Structure
 
-### 📖 [Main README](../README.md)
+### 🚀 [Complete Guide](./COMPLETE_GUIDE.md) **→ START HERE**
 
-Primary documentation with v2.0.0 updates:
+**Everything you need in one place:**
 
--   **Simplified Installation**: Only React dependencies required
--   **Quick Start Guide**: Using SchillingWidgets wrapper
--   Complete component library reference
--   Theme configuration and examples
-
-### 🔄 [Migration Guide v2.0.0](./MIGRATION_V2.md) **NEW**
-
-Essential guide for upgrading from v1.x to v2.0.0:
-
--   Breaking changes overview
--   Step-by-step migration instructions
--   API compatibility information
--   Advanced configuration options
+- ⚡ Quick Start (zero configuration)
+- 📦 Installation guide
+- 🎯 Usage modes (default, Tailwind integration, CSS-only)
+- 🔗 Integration with existing projects
+- 🔄 Migration from v1.x to v2.0
+- 🔄 Migration from other UI libraries
+- ⚙️ Advanced configuration
+- 🔍 Troubleshooting
 
 ### 📖 [Unified Documentation](./UNIFIED_DOCUMENTATION.md)
 
-Comprehensive documentation (English):
+**Comprehensive API reference:**
 
--   Complete component guide
--   Advanced patterns and examples
--   API reference
--   Performance considerations
+- 📋 Complete component library
+- 🎛️ Advanced widgets (TaskManager, InfiniteTable)
+- 🎨 Theme customization
+- 💡 Practical examples
+- 🔧 Development guidelines
 
-### � [Documentación Unificada](./DOCUMENTACION_UNIFICADA.md)
+## 🎯 Quick Navigation
 
-Documentación completa (Español):
+| What you want to do                  | Go to                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| **Start using the package**          | [Complete Guide - Quick Start](./COMPLETE_GUIDE.md#-quick-start)                                 |
+| **Integrate with existing Tailwind** | [Complete Guide - Tailwind Integration](./COMPLETE_GUIDE.md#-integration-with-existing-tailwind) |
+| **Migrate from v1.x**                | [Complete Guide - Migration](./COMPLETE_GUIDE.md#-migration-from-v1x-to-v20)                     |
+| **See all components**               | [Unified Documentation - Components](./UNIFIED_DOCUMENTATION.md#-basic-components)               |
+| **Use TaskManager widget**           | [Unified Documentation - TaskManager](./UNIFIED_DOCUMENTATION.md#taskmanager)                    |
+| **Customize themes**                 | [Unified Documentation - Themes](./UNIFIED_DOCUMENTATION.md#-theme-customization)                |
+| **Troubleshoot issues**              | [Complete Guide - Troubleshooting](./COMPLETE_GUIDE.md#-troubleshooting)                         |
 
--   Guía completa de componentes
--   Patrones avanzados y ejemplos
--   Referencia de API
--   Consideraciones de rendimiento
-
-## 🚀 Quick Start
-
-1. **Installation**:
+## ⚡ TL;DR - Get Started in 30 Seconds
 
 ```bash
-npm install @schilling-apps/schilling-widgets-system
-# Only React and ReactDOM needed as peer dependencies!
+npm install @schilling-apps/schilling-widgets-system react react-dom
 ```
-
-2. **Basic usage**:
 
 ```tsx
 import {
-    SchillingWidgets,
-    Button,
-    Card,
-    TaskManager,
-} from "@schilling-apps/schilling-widgets-system";
+  SchillingWidgets,
+  Button,
+  Card,
+} from '@schilling-apps/schilling-widgets-system';
 
 function App() {
-    return (
-        <SchillingWidgets>
-            <Card>
-                <Button>Hello World!</Button>
-                <TaskManager tasks={tasks} />
-            </Card>
-        </SchillingWidgets>
-    );
+  return (
+    <SchillingWidgets>
+      <Card>
+        <Button>Hello World!</Button>
+      </Card>
+    </SchillingWidgets>
+  );
 }
 ```
 
-3. **That's it!** All dependencies (TanStack Query, Lucide React, etc.) are bundled automatically.
-
-## 🎯 Main Components
-
--   **Basic**: Button, Card, Input, LoadingSpinner
--   **Advanced**: Accordion, Tabs, Tooltip, Dialog
--   **Widgets**: TaskManager, InfiniteTable
--   **Utilities**: ThemeProvider, QueryProvider, useApi
-
-## 🎨 Themes
-
-The system supports:
-
--   **Tailwind CSS**: Full mode with all features
--   **CSS-only**: Independent mode without Tailwind requirement
--   **Themes**: Light/Dark with complete customization
-
-## 📞 Support
-
-To report issues or request features:
-
--   Create an issue in the repository
--   Include code examples
--   Specify the version used
+**Done!** No configuration needed. ✨
 
 ---
 
-**Schilling Widgets System v1.0.0** - A complete solution for React applications
+## 📋 What's New in v2.0
+
+- ✅ **Zero configuration** - works immediately after install
+- ✅ **All dependencies bundled** - no more peer dependency conflicts
+- ✅ **Simplified API** - single `SchillingWidgets` wrapper
+- ✅ **Better performance** - optimized bundle and runtime
+- ✅ **Enhanced flexibility** - works with any setup
+
+---
+
+For the main package README, see: [../README.md](../README.md)
