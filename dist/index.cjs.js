@@ -16506,8 +16506,8 @@ function TableRow$1({ index, style, data }) {
         }) }));
 }
 // Create a wrapper component that handles the generic types properly
-const TableRowWrapper = React.memo(({ index, style, data }) => {
-    return TableRow$1({ index, style, data });
+const TableRowWrapper = React.memo((props) => {
+    return TableRow$1(props);
 });
 function InfiniteTable({ columns, data, loading = false, onLoadMore, hasNextPage = false, itemHeight = 50, height = 400, className, }) {
     const [sortConfig, setSortConfig] = React.useState(null);

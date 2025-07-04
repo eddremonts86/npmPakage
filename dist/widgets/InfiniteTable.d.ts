@@ -1,12 +1,12 @@
 import React from 'react';
-export interface TableColumn<T = any> {
+export interface TableColumn<T = Record<string, unknown>> {
     key: string;
     header: string;
     width?: number;
     sortable?: boolean;
-    render?: (value: any, row: T, index: number) => React.ReactNode;
+    render?: (value: unknown, row: T, index: number) => React.ReactNode;
 }
-export interface InfiniteTableProps<T = any> {
+export interface InfiniteTableProps<T = Record<string, unknown>> {
     columns: TableColumn<T>[];
     data: T[];
     loading?: boolean;
@@ -16,6 +16,6 @@ export interface InfiniteTableProps<T = any> {
     height?: number;
     className?: string;
 }
-export declare function InfiniteTable<T = any>({ columns, data, loading, onLoadMore, hasNextPage, itemHeight, height, className, }: InfiniteTableProps<T>): import("react/jsx-runtime").JSX.Element;
+export declare function InfiniteTable<T = Record<string, unknown>>({ columns, data, loading, onLoadMore, hasNextPage, itemHeight, height, className, }: InfiniteTableProps<T>): import("react/jsx-runtime").JSX.Element;
 export default InfiniteTable;
 //# sourceMappingURL=InfiniteTable.d.ts.map

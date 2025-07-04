@@ -1,11 +1,11 @@
-export declare const fetchApi: <T = any>(url: string, options?: RequestInit) => Promise<T>;
-export declare const useApiQuery: <T = any>(queryKey: string[], url: string, options?: {
+export declare const fetchApi: <T = unknown>(url: string, options?: RequestInit) => Promise<T>;
+export declare const useApiQuery: <T = unknown>(queryKey: string[], url: string, options?: {
     enabled?: boolean;
     staleTime?: number;
     gcTime?: number;
     retry?: number;
 }) => import("@tanstack/react-query").UseQueryResult<import("@tanstack/react-query").NoInfer<T>, Error>;
-export declare const useApiMutation: <TData = any, TVariables = any>(mutationFn: (variables: TVariables) => Promise<TData>, options?: {
+export declare const useApiMutation: <TData = unknown, TVariables = unknown>(mutationFn: (variables: TVariables) => Promise<TData>, options?: {
     onSuccess?: (data: TData, variables: TVariables) => void;
     onError?: (error: Error, variables: TVariables) => void;
     invalidateQueries?: string[][];
