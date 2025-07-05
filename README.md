@@ -30,7 +30,7 @@ A complete UI components library for React applications with TypeScript that **w
 ## 📦 Installation
 
 ```bash
-npm install @schilling-apps/schilling-widgets-system
+npm install schilling-widgets-system
 ```
 
 ### Peer Dependencies
@@ -63,7 +63,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@schilling-apps/schilling-widgets-system';
+} from 'schilling-widgets-system';
 
 function App() {
   return (
@@ -87,11 +87,7 @@ export default App;
 
 ```tsx
 import React from 'react';
-import {
-  SchillingWidgets,
-  TaskManager,
-  Task,
-} from '@schilling-apps/schilling-widgets-system';
+import { SchillingWidgets, TaskManager, Task } from 'schilling-widgets-system';
 
 const sampleTasks: Task[] = [
   {
@@ -136,7 +132,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@schilling-apps/schilling-widgets-system';
+} from 'schilling-widgets-system';
 
 function App() {
   return (
@@ -998,7 +994,47 @@ To report issues or request features:
 - ck Query integration
 - te documentation and examples
 
-## 📚 Documentation
+## �️ Development & Testing
+
+This package includes two development environments for testing components:
+
+### CSS-Based Development Environment
+
+Located in `./develoments/css-based/` - Tests components without Tailwind CSS dependency:
+
+```bash
+cd develoments/css-based
+npm install
+npm run dev
+```
+
+This environment demonstrates:
+
+- ✅ **CSS-only styling** - Components work without Tailwind
+- ✅ **Global CSS variables** - Theme customization through CSS
+- ✅ **Component testing** - All examples are included
+- ✅ **Zero configuration** - No additional setup required
+
+### Tailwind-Based Development Environment
+
+Located in `./develoments/tailwind-based/` - Tests components with Tailwind CSS integration:
+
+```bash
+cd develoments/tailwind-based
+npm install
+npm run dev
+```
+
+This environment demonstrates:
+
+- ✅ **Tailwind integration** - Components work with existing Tailwind setup
+- ✅ **Custom configuration** - Enhanced styling with Tailwind utilities
+- ✅ **Theme customization** - Custom color schemes and styling
+- ✅ **Performance optimization** - Tree-shaking and utility-first approach
+
+Both environments include all component examples from `src/examples/` and demonstrate the flexibility of the widget system.
+
+## �📚 Documentation
 
 ### 📖 Complete Guides
 

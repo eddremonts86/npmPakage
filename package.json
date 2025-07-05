@@ -74,8 +74,7 @@
   "files": [
     "dist",
     "README.md",
-    "src/styles/css-only.css",
-    "src/styles/globals.css"
+    "CHANGELOG.md"
   ],
   "keywords": [
     "react",
@@ -116,11 +115,14 @@
     "publish:patch": "npm version patch && npm publish --access public",
     "publish:minor": "npm version minor && npm publish --access public",
     "publish:major": "npm version major && npm publish --access public",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev:setup": "node -e \"require('child_process').execSync(process.platform === 'win32' ? 'scripts\\\\setup-dev-environments.bat' : 'bash scripts/setup-dev-environments.sh', {stdio: 'inherit'})\"",
+    "dev:css": "cd develoments/css-based && npm run dev",
+    "dev:tailwind": "cd develoments/tailwind-based && npm run dev"
   },
   "type": "module",
   "types": "dist/index.d.ts",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
