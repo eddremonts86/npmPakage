@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schilling Widgets - Development Playground</title>
+    <style>
+      /* Minimal reset - only what we need */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background-color: #f8fafc;
+        color: #1e293b;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      /* Simple layout utilities for the playground */
+      .playground-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .playground-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .playground-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .playground-section {
+        background: white;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+      }
+
+      .playground-section h3 {
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      .component-demo {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .demo-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>

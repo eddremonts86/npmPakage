@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schilling Widgets Dev - Test</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .container {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .status {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 Schilling Widgets Dev Environment</h1>
+      <p>Static HTML Test Page</p>
+
+      <div class="status">
+        <h3>Environment Check:</h3>
+        <ul>
+          <li>✅ HTML is loading</li>
+          <li>✅ CSS styles are working</li>
+          <li>🔄 Testing server connection...</li>
+          <li>📦 Ready for React integration</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8">
+        If you see this page, the dev server is working!
+      </p>
+    </div>
+
+    <script>
+      console.log('🎉 Dev environment test page loaded successfully!');
+      console.log('Location:', window.location.href);
+      console.log('Port:', window.location.port);
+    </script>
+  </body>
+</html>
