@@ -1,175 +1,93 @@
-import React from "react";
 import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-    Button,
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-    Checkbox,
-    configureTheme,
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "schilling-widgets-system";
+  Button,
+  Card,
+  Badge,
+  Input,
+  Select,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from 'schilling-widgets-system';
 
-export function ComprehensiveExample() {
-    const [theme, setTheme] = React.useState<"light" | "dark">("light");
+function ComprehensiveExample() {
+  return (
+    <div className='p-6 space-y-6 bg-background min-h-screen'>
+      <div className="mb-6">
+        <h1 className='text-2xl font-bold text-foreground mb-2'>
+          Comprehensive Components Example
+        </h1>
+        <p className="text-muted-foreground">
+          All components exactly like the shadcn/ui reference.
+        </p>
+      </div>
 
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        configureTheme({ theme: newTheme });
-    };
-
-    return (
-        <div className="container">
-            <Card>
-                <CardHeader>
-                    <CardTitle>
-                        Schilling Widgets System Demo - CSS Only Mode
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="controls">
-                        <Button onClick={toggleTheme}>
-                            Toggle Theme ({theme})
-                        </Button>
-                        <Button variant="outline">CSS-Only Mode Active</Button>
-                    </div>
-
-                    <Tabs defaultValue="basic">
-                        <TabsList>
-                            <TabsTrigger value="basic">
-                                Basic Components
-                            </TabsTrigger>
-                            <TabsTrigger value="forms">
-                                Form Components
-                            </TabsTrigger>
-                            <TabsTrigger value="layout">
-                                Layout Components
-                            </TabsTrigger>
-                        </TabsList>
-
-                        <TabsContent value="basic">
-                            <div className="grid">
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>Buttons</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <div className="button-group">
-                                            <Button>Primary</Button>
-                                            <Button variant="secondary">
-                                                Secondary
-                                            </Button>
-                                            <Button variant="outline">
-                                                Outline
-                                            </Button>
-                                            <Button variant="ghost">
-                                                Ghost
-                                            </Button>
-                                            <Button variant="destructive">
-                                                Destructive
-                                            </Button>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>Avatar</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <div className="avatar-group">
-                                            <Avatar>
-                                                <AvatarImage src="https://github.com/shadcn.png" />
-                                                <AvatarFallback>
-                                                    CN
-                                                </AvatarFallback>
-                                            </Avatar>
-                                            <Avatar>
-                                                <AvatarFallback>
-                                                    JD
-                                                </AvatarFallback>
-                                            </Avatar>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </TabsContent>
-
-                        <TabsContent value="forms">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Form Elements</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="form-group">
-                                        <div className="form-row">
-                                            <Checkbox id="terms" />
-                                            <label htmlFor="terms">
-                                                Accept terms and conditions
-                                            </label>
-                                        </div>
-                                        <div className="form-row">
-                                            <Checkbox id="newsletter" />
-                                            <label htmlFor="newsletter">
-                                                Subscribe to newsletter
-                                            </label>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </TabsContent>
-
-                        <TabsContent value="layout">
-                            <div className="grid layout-grid">
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>Card 1</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p>
-                                            This is a sample card using CSS-only
-                                            styling.
-                                        </p>
-                                    </CardContent>
-                                </Card>
-
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>Card 2</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p>
-                                            No Tailwind CSS required for these
-                                            components.
-                                        </p>
-                                    </CardContent>
-                                </Card>
-
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle>Card 3</CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p>
-                                            Global CSS variables provide
-                                            consistent theming.
-                                        </p>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        </TabsContent>
-                    </Tabs>
-                </CardContent>
-            </Card>
+      {/* Buttons Section */}
+      <Card className="p-6">
+        <h2 className="text-lg font-semibold mb-4">Buttons</h2>
+        <div className="flex flex-wrap gap-4">
+          <Button>Primary Button</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
         </div>
-    );
+      </Card>
+
+      {/* Badges Section */}
+      <Card className="p-6">
+        <h2 className="text-lg font-semibold mb-4">Badges</h2>
+        <div className="flex flex-wrap gap-4">
+          <Badge>Default</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="outline">Outline</Badge>
+          <Badge variant="destructive">Destructive</Badge>
+        </div>
+      </Card>
+
+      {/* Form Elements */}
+      <Card className="p-6">
+        <h2 className="text-lg font-semibold mb-4">Form Elements</h2>
+        <div className="space-y-4 max-w-md">
+          <div>
+            <label className="text-sm font-medium mb-2 block">Name</label>
+            <Input placeholder="Enter your name" />
+          </div>
+          <div>
+            <label className="text-sm font-medium mb-2 block">Country</label>
+            <Select>
+              <option>Select a country</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+            </Select>
+          </div>
+        </div>
+      </Card>
+
+      {/* Tabs Section */}
+      <Card className="p-6">
+        <h2 className="text-lg font-semibold mb-4">Tabs</h2>
+        <Tabs defaultValue="account">
+          <TabsList>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account" className="mt-4">
+            <p className="text-muted-foreground">Make changes to your account here.</p>
+          </TabsContent>
+          <TabsContent value="password" className="mt-4">
+            <p className="text-muted-foreground">Change your password here.</p>
+          </TabsContent>
+          <TabsContent value="settings" className="mt-4">
+            <p className="text-muted-foreground">Manage your settings here.</p>
+          </TabsContent>
+        </Tabs>
+      </Card>
+    </div>
+  );
 }
 
 export default ComprehensiveExample;
