@@ -1,31 +1,37 @@
 # Schilling Widgets System
 
-A complete UI components library for React applications with TypeScript that **works out of the box** - no additional setup required! Built with flexibility in mind, it can integrate seamlessly with existing Tailwind CSS setups or work independently with its own styling system.
+![Version](https://img.shields.io/badge/version-2.1.1-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)
+![React](https://img.shields.io/badge/React-18+-blue.svg)
+
+A comprehensive UI components library for React applications with TypeScript. Built with **Shadcn UI** design system, **TanStack Query** for data management, and **Radix UI** primitives for accessibility. Works out of the box with no additional configuration required!
 
 ## 🚀 Key Features
 
-### 🎨 Zero-Setup Styling System
+### 🎨 **Complete Design System**
 
-- **🔧 No Configuration Required**: Works immediately after installation
-- **🎨 Built-in Tailwind Utilities**: Pre-compiled and included in the package
-- **🔗 Existing Tailwind Integration**: Seamlessly integrates with your app's Tailwind setup
-- **💄 CSS-only Fallback**: Works without any CSS framework
-- **🌙 Theme Support**: Light/dark mode with customizable colors
+- ✅ **Shadcn UI Design System** - Beautiful, modern components
+- ✅ **Built-in Tailwind CSS** - Pre-compiled utilities included
+- ✅ **Dark/Light Theme** - Full theme support with custom CSS variables
+- ✅ **Responsive Design** - Mobile-first, works on all screen sizes
+- ✅ **CSS-only Fallback** - Works without any CSS framework
 
-### 📦 Complete Component Library
+### 📦 **Rich Component Library**
 
-- **Basic Components**: Button, Card, Input, Dialog, LoadingSpinner
-- **Advanced Components**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
-- **Advanced Widgets**: InfiniteTable, TaskManager with virtualization
-- **Complete Shadcn UI**: Full set of accessible and modern components
+- ✅ **Basic Components**: Button, Card, Input, Dialog, LoadingSpinner
+- ✅ **Advanced Components**: Accordion, AlertDialog, Avatar, Badge, Checkbox, DropdownMenu, Select, Tabs, Tooltip
+- ✅ **Advanced Widgets**: InfiniteTable (virtualized), TaskManager (full-featured)
+- ✅ **Accessibility First** - Built with Radix UI primitives
+- ✅ **TypeScript Ready** - Complete type definitions included
 
-### 🛠️ Development Experience
+### 🛠️ **Developer Experience**
 
-- **TypeScript First**: Complete type safety and IntelliSense
-- **TanStack Query**: Efficient data and state management (bundled)
-- **Optimized**: Tree-shaking and only loads what you need
-- **Accessible**: Built following accessibility best practices
-- **Self-Contained**: All dependencies bundled - no peer dependency conflicts
+- ✅ **Zero Configuration** - Works immediately after installation
+- ✅ **TanStack Query** - Built-in data management and caching
+- ✅ **Tree Shaking** - Only imports what you use
+- ✅ **Self-contained** - All dependencies bundled, no conflicts
+- ✅ **Dual Development Environments** - CSS-based and Tailwind-based testing
 
 ## 📦 Installation
 
@@ -41,1024 +47,730 @@ Only React and ReactDOM are required:
 npm install react react-dom
 ```
 
-**That's it!** The package includes its own styling system and all dependencies are bundled:
+**That's it!** Everything else is bundled:
 
-- ✅ **Tailwind CSS utilities** - Pre-built and included
-- ✅ **TanStack Query** - Bundled for data management
-- ✅ **Lucide React icons** - All icons included
-- ✅ **CSS-only fallback** - Works without any CSS framework
-
-**No additional setup required!** The package works out of the box.
+- ✅ Tailwind CSS utilities (pre-compiled)
+- ✅ TanStack Query (data management)
+- ✅ Lucide React (icons)
+- ✅ Radix UI primitives (accessibility)
+- ✅ All styling and animations
 
 ## 🎯 Quick Start
 
-### Simple Usage
+### Basic Example
 
 ```tsx
-import React from 'react';
+import React from "react";
 import {
-  SchillingWidgets,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from 'schilling-widgets-system';
+    SchillingWidgets,
+    Button,
+    Card,
+    CardHeader,
+    CardTitle,
+    CardContent,
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+    DialogClose,
+} from "schilling-widgets-system";
 
 function App() {
-  return (
-    <SchillingWidgets>
-      <Card>
-        <CardHeader>
-          <CardTitle>Welcome to Schilling Widgets</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Button>Get Started</Button>
-        </CardContent>
-      </Card>
-    </SchillingWidgets>
-  );
+    return (
+        <SchillingWidgets>
+            <div className="p-6 space-y-6">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Welcome to Schilling Widgets</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground mb-4">
+                            A complete UI component library that works out of
+                            the box!
+                        </p>
+
+                        <div className="flex gap-2 mb-4">
+                            <Button>Primary Button</Button>
+                            <Button variant="outline">Secondary Button</Button>
+                        </div>
+
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="outline">Open Dialog</Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Welcome!</DialogTitle>
+                                    <DialogDescription>
+                                        This dialog demonstrates the
+                                        accessibility and animation features.
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <DialogFooter>
+                                    <DialogClose asChild>
+                                        <Button>Close</Button>
+                                    </DialogClose>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    </CardContent>
+                </Card>
+            </div>
+        </SchillingWidgets>
+    );
 }
 
 export default App;
 ```
 
-### Advanced Usage with TaskManager
+## 🧩 Core Components
+
+### Button
+
+Modern button with multiple variants and sizes:
 
 ```tsx
-import React from 'react';
-import { SchillingWidgets, TaskManager, Task } from 'schilling-widgets-system';
+import { Button } from 'schilling-widgets-system';
 
-const sampleTasks: Task[] = [
-  {
-    id: '1',
-    name: 'Setup project',
-    status: 'In progress',
-    reference: 'PROJ-001',
-    phase: 'Development',
-    expectedStart: '2025-01-01',
-    expectedDue: '2025-01-15',
-    assignee: 'John Doe',
-    priority: 'high',
-    progress: 50,
-  },
-];
+// Variants
+<Button variant="default">Default</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
 
-function App() {
-  return (
-    <SchillingWidgets>
-      <TaskManager tasks={sampleTasks} height={600} enableInlineEdit={true} />
-    </SchillingWidgets>
-  );
-}
-
-export default App;
+// Sizes
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>
 ```
 
-## 🎯 Usage Modes
+### Card
 
-The Schilling Widgets System is designed to work **independently** without requiring any additional CSS framework setup. However, it offers flexible integration options:
-
-### 🚀 Default Mode (Recommended)
-
-**Zero configuration required!** Just import and use:
-
-```tsx
-import React from 'react';
-import {
-  SchillingWidgets,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from 'schilling-widgets-system';
-
-function App() {
-  return (
-    <SchillingWidgets>
-      <Card>
-        <CardHeader>
-          <CardTitle>Ready to use!</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Button>No setup needed</Button>
-        </CardContent>
-      </Card>
-    </SchillingWidgets>
-  );
-}
-```
-
-The package includes:
-
-- ✅ Pre-built Tailwind utilities
-- ✅ Complete styling system
-- ✅ Dark/light theme support
-- ✅ All necessary dependencies
-
-### 🎨 Integration with Existing Tailwind CSS
-
-If your application **already uses Tailwind CSS** and you want the package to follow your app's design system:
-
-#### 1. Configure Content Scanning
-
-Add the package to your `tailwind.config.js`:
-
-```javascript
-module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    // Add this line to include package components
-    './node_modules/@schilling-apps/schilling-widgets-system/dist/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {
-      // Your existing theme configuration
-      colors: {
-        // The package will use your app's color system
-        primary: 'hsl(var(--primary))',
-        secondary: 'hsl(var(--secondary))',
-        // ... rest of your colors
-      },
-    },
-  },
-  plugins: [
-    // Your existing plugins
-  ],
-};
-```
-
-#### 2. Define CSS Variables
-
-Ensure your app's CSS includes the design tokens the package expects:
-
-```css
-/* In your main CSS file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  /* Define your app's design tokens */
-  --primary: 222.2 84% 4.9%; /* Your primary color */
-  --secondary: 210 40% 96%; /* Your secondary color */
-  --destructive: 0 84.2% 60.2%; /* Your destructive/error color */
-  --muted: 210 40% 96%; /* Your muted color */
-  --accent: 210 40% 96%; /* Your accent color */
-  --border: 214.3 31.8% 91.4%; /* Your border color */
-  --input: 214.3 31.8% 91.4%; /* Your input border color */
-  --ring: 222.2 84% 4.9%; /* Your focus ring color */
-  --background: 0 0% 100%; /* Your background color */
-  --foreground: 222.2 84% 4.9%; /* Your text color */
-
-  /* Card colors */
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-
-  /* Popover colors */
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-
-  /* Muted variations */
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent-foreground: 222.2 84% 4.9%;
-}
-
-.dark {
-  /* Dark mode versions of your colors */
-  --primary: 210 40% 98%;
-  --secondary: 222.2 84% 4.9%;
-  --destructive: 0 62.8% 30.6%;
-  --muted: 217.2 32.6% 17.5%;
-  --accent: 217.2 32.6% 17.5%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent-foreground: 210 40% 98%;
-}
-```
-
-#### 3. Use with Your Theme
-
-```tsx
-import { ThemeProvider } from '@schilling-apps/schilling-widgets-system';
-
-function MyApp() {
-  return (
-    <ThemeProvider>
-      {/* Components will now use your app's Tailwind configuration */}
-      <YourAppComponents />
-    </ThemeProvider>
-  );
-}
-```
-
-### 🎭 CSS-Only Mode
-
-For applications that don't use Tailwind CSS at all:
+Flexible card component for content organization:
 
 ```tsx
 import {
-  configureTheme,
-  SchillingWidgets,
-  Button,
-} from '@schilling-apps/schilling-widgets-system';
-
-// Configure CSS-only mode
-configureTheme({ useTailwind: false });
-
-function App() {
-  return (
-    <SchillingWidgets>
-      <Button>Works with any CSS framework!</Button>
-    </SchillingWidgets>
-  );
-}
-```
-
-### ⚙️ Advanced Configuration
-
-You can also configure the theme system programmatically:
-
-```tsx
-import { configureTheme } from '@schilling-apps/schilling-widgets-system';
-
-// Configure theme behavior
-configureTheme({
-  useTailwind: true, // Use Tailwind classes
-  enforceHostStyles: true, // Follow host app's styles
-  fallbackToCss: true, // Fallback to CSS-only if needed
-  customPrefix: 'my-app', // Custom CSS prefix
-});
-```
-
-## 🧩 Available Components
-
-### Basic Components
-
-#### Button
-
-```tsx
-import { Button } from "@schilling-apps/schilling-widgets-system";
-
-<Button variant="default" size="md">
-    Primary Button
-</Button>
-<Button variant="outline" size="sm">
-    Secondary Button
-</Button>
-<Button variant="destructive" size="lg">
-    Dangerous Button
-</Button>
-```
-
-**Variants**: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
-
-**Sizes**: `sm`, `md`, `lg`
-
-#### Card
-
-```tsx
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@schilling-apps/schilling-widgets-system';
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter,
+} from "schilling-widgets-system";
 
 <Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Optional description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card content</p>
-  </CardContent>
-  <CardFooter>
-    <Button>Action</Button>
-  </CardFooter>
+    <CardHeader>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>Optional description</CardDescription>
+    </CardHeader>
+    <CardContent>
+        <p>Your content here...</p>
+    </CardContent>
+    <CardFooter>
+        <Button>Action</Button>
+    </CardFooter>
 </Card>;
 ```
 
-#### Input
+### Dialog
+
+Accessible modal dialog with animations and proper focus management:
 
 ```tsx
-import { Input } from '@schilling-apps/schilling-widgets-system';
+import {
+    Dialog,
+    DialogTrigger,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+    DialogClose,
+} from "schilling-widgets-system";
+
+<Dialog>
+    <DialogTrigger asChild>
+        <Button>Open Dialog</Button>
+    </DialogTrigger>
+    <DialogContent>
+        <DialogHeader>
+            <DialogTitle>Confirm Action</DialogTitle>
+            <DialogDescription>
+                Are you sure you want to proceed? This action cannot be undone.
+            </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+            <DialogClose asChild>
+                <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <Button>Confirm</Button>
+        </DialogFooter>
+    </DialogContent>
+</Dialog>;
+```
+
+### Input
+
+Styled input with proper focus states:
+
+```tsx
+import { Input } from "schilling-widgets-system";
 
 <Input
-  type='text'
-  placeholder='Enter your text'
-  value={value}
-  onChange={e => setValue(e.target.value)}
+    type="text"
+    placeholder="Enter your name..."
+    value={value}
+    onChange={(e) => setValue(e.target.value)}
 />;
 ```
 
-### Advanced Components
+## 🎛️ Advanced Components
 
-#### Accordion
+### Accordion
+
+Collapsible content sections:
 
 ```tsx
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@schilling-apps/schilling-widgets-system';
+    Accordion,
+    AccordionItem,
+    AccordionTrigger,
+    AccordionContent,
+} from "schilling-widgets-system";
 
-<Accordion type='single' collapsible>
-  <AccordionItem value='item-1'>
-    <AccordionTrigger>What is Schilling Widgets?</AccordionTrigger>
-    <AccordionContent>
-      A complete UI components library for React.
-    </AccordionContent>
-  </AccordionItem>
+<Accordion
+    type="single"
+    collapsible
+>
+    <AccordionItem value="item-1">
+        <AccordionTrigger>Section 1</AccordionTrigger>
+        <AccordionContent>Content for section 1</AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+        <AccordionTrigger>Section 2</AccordionTrigger>
+        <AccordionContent>Content for section 2</AccordionContent>
+    </AccordionItem>
 </Accordion>;
 ```
 
-#### Tabs
+### Tabs
+
+Tabbed interface for organizing content:
 
 ```tsx
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@schilling-apps/schilling-widgets-system';
+    Tabs,
+    TabsList,
+    TabsTrigger,
+    TabsContent,
+} from "schilling-widgets-system";
 
-<Tabs defaultValue='tab1'>
-  <TabsList>
-    <TabsTrigger value='tab1'>Tab 1</TabsTrigger>
-    <TabsTrigger value='tab2'>Tab 2</TabsTrigger>
-  </TabsList>
-  <TabsContent value='tab1'>
-    <p>Tab 1 content</p>
-  </TabsContent>
-  <TabsContent value='tab2'>
-    <p>Tab 2 content</p>
-  </TabsContent>
+<Tabs defaultValue="overview">
+    <TabsList>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="details">Details</TabsTrigger>
+        <TabsTrigger value="settings">Settings</TabsTrigger>
+    </TabsList>
+    <TabsContent value="overview">
+        <p>Overview content...</p>
+    </TabsContent>
+    <TabsContent value="details">
+        <p>Details content...</p>
+    </TabsContent>
+    <TabsContent value="settings">
+        <p>Settings content...</p>
+    </TabsContent>
 </Tabs>;
 ```
 
-#### Tooltip
+### Select
+
+Dropdown select with search and keyboard navigation:
 
 ```tsx
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@schilling-apps/schilling-widgets-system';
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "schilling-widgets-system";
 
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant='outline'>Hover here</Button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Additional information</p>
-    </TooltipContent>
-  </Tooltip>
-</TooltipProvider>;
+<Select>
+    <SelectTrigger>
+        <SelectValue placeholder="Select an option" />
+    </SelectTrigger>
+    <SelectContent>
+        <SelectItem value="option1">Option 1</SelectItem>
+        <SelectItem value="option2">Option 2</SelectItem>
+        <SelectItem value="option3">Option 3</SelectItem>
+    </SelectContent>
+</Select>;
 ```
 
-## 🎛️ Advanced Widgets
+## 🎯 Advanced Widgets
 
 ### TaskManager
 
-A complete task management widget with advanced features:
+Complete task management widget with virtualization, filtering, and real-time updates:
 
 ```tsx
-import { TaskManager, Task } from '@schilling-apps/schilling-widgets-system';
+import { TaskManager, Task, TaskStatus } from "schilling-widgets-system";
 
 const tasks: Task[] = [
-  {
-    id: 'task-1',
-    name: 'Implement authentication',
-    status: 'In progress',
-    reference: 'REF-001',
-    phase: 'Development',
-    expectedStart: '2025-01-01',
-    expectedDue: '2025-01-15',
-    assignee: 'John Doe',
-    priority: 'high',
-    description: 'Implement JWT authentication system',
-    progress: 75,
-    tags: ['auth', 'security'],
-  },
+    {
+        id: "1",
+        title: "Complete project documentation",
+        description: "Write comprehensive README and setup guides",
+        status: "In Progress",
+        priority: "High",
+        assignee: "John Doe",
+        dueDate: "2024-12-31",
+        tags: ["documentation", "high-priority"],
+    },
+    {
+        id: "2",
+        title: "Implement user authentication",
+        description: "Add OAuth and JWT authentication",
+        status: "Not started",
+        priority: "Medium",
+        assignee: "Jane Smith",
+        dueDate: "2024-12-15",
+        tags: ["auth", "security"],
+    },
 ];
 
-function MyTaskManager() {
-  return (
-    <TaskManager
-      tasks={tasks}
-      height={600}
-      enableInlineEdit={true}
-      enableRealTimeUpdates={true}
-      onTaskUpdate={(id, updates) => {
-        console.log('Task updated:', id, updates);
-      }}
-      onTaskDelete={id => {
-        console.log('Task deleted:', id);
-      }}
-      onRefresh={() => {
-        console.log('Refresh data');
-      }}
-    />
-  );
+function TaskManagerExample() {
+    const handleTaskUpdate = (updatedTask: Task) => {
+        console.log("Task updated:", updatedTask);
+        // Update your state/API here
+    };
+
+    const handleTaskDelete = (taskId: string) => {
+        console.log("Task deleted:", taskId);
+        // Delete from your state/API here
+    };
+
+    return (
+        <TaskManager
+            tasks={tasks}
+            onTaskUpdate={handleTaskUpdate}
+            onTaskDelete={handleTaskDelete}
+            enableInlineEdit={true}
+            enableRealTimeUpdates={false}
+            height={600}
+            pageSize={25}
+        />
+    );
 }
 ```
 
-#### TaskManager Features
-
-- ormance\*\*: Virtualization with react-window for large datasets
-- ures\*\*: Sorting, filtering, pagination, customizable columns
-- ing\*\*: Inline editing, action menus, complete callbacks
-- X\*\*: Tooltips, visual states, responsive design, theming
-- ssibility\*\*: Keyboard navigation, ARIA labels, semantic HTML
-
 #### TaskManager Props
 
-| Prop                    | Type           | Required | Default         | Description               |
-| ----------------------- | -------------- | -------- | --------------- | ------------------------- |
-| `tasks`                 | `Task[]`       | ✅       | -               | Array of tasks to display |
-| `columns`               | `TaskColumn[]` | ❌       | DEFAULT_COLUMNS | Column configuration      |
-| `loading`               | `boolean`      | ❌       | `false`         | Loading state             |
-| `height`                | `number`       | ❌       | `600`           | Component height          |
-| `enableInlineEdit`      | `boolean`      | ❌       | `true`          | Enable inline editing     |
-| `enableRealTimeUpdates` | `boolean`      | ❌       | `false`         | Automatic updates         |
-| `pageSize`              | `number`       | ❌       | `50`            | Items per page            |
-| `onTaskUpdate`          | `function`     | ❌       | -               | Task update callback      |
-| `onTaskDelete`          | `function`     | ❌       | -               | Task delete callback      |
-| `onRefresh`             | `function`     | ❌       | -               | Data refresh callback     |
+| Prop                    | Type                   | Required | Default         | Description                 |
+| ----------------------- | ---------------------- | -------- | --------------- | --------------------------- |
+| `tasks`                 | `Task[]`               | ✅       | -               | Array of tasks to display   |
+| `columns`               | `TaskColumn[]`         | ❌       | Default columns | Custom column configuration |
+| `loading`               | `boolean`              | ❌       | `false`         | Show loading state          |
+| `height`                | `number`               | ❌       | `600`           | Component height in pixels  |
+| `enableInlineEdit`      | `boolean`              | ❌       | `true`          | Enable inline editing       |
+| `enableRealTimeUpdates` | `boolean`              | ❌       | `false`         | Auto-refresh data           |
+| `pageSize`              | `number`               | ❌       | `50`            | Items per page              |
+| `onTaskUpdate`          | `(task: Task) => void` | ❌       | -               | Task update callback        |
+| `onTaskDelete`          | `(id: string) => void` | ❌       | -               | Task delete callback        |
+| `onRefresh`             | `() => void`           | ❌       | -               | Refresh callback            |
 
 #### Task Interface
 
 ```typescript
 interface Task {
-  id: string; // Unique identifier
-  name: string; // Task name
-  status: TaskStatus; // Current status
-  reference: string; // Reference/code
-  phase: string; // Project phase
-  expectedStart: string; // Expected start date (ISO)
-  expectedDue: string; // Expected due date (ISO)
-  assignee: string; // Assigned person
-  progress?: number; // Progress (0-100)
-  priority?: 'low' | 'medium' | 'high';
-  description?: string; // Detailed description
-  tags?: string[]; // Tags
+    id: string;
+    title: string;
+    description?: string;
+    status: TaskStatus;
+    priority: "Low" | "Medium" | "High" | "Critical";
+    assignee?: string;
+    dueDate?: string;
+    tags?: string[];
 }
 
 type TaskStatus =
-  | 'Overdue'
-  | 'Blocked'
-  | 'In progress'
-  | 'On hold'
-  | 'Not started';
+    | "Not started"
+    | "In Progress"
+    | "Completed"
+    | "Cancelled"
+    | "Overdue";
 ```
 
 ### InfiniteTable
 
-Virtualized table for large datasets:
+Virtualized table for large datasets with sorting and filtering:
 
 ```tsx
-import { InfiniteTable } from '@schilling-apps/schilling-widgets-system';
+import { InfiniteTable, TableColumn } from "schilling-widgets-system";
 
-const columns = [
-  {
-    key: 'name',
-    header: 'Name',
-    width: 200,
-    render: value => <strong>{value}</strong>,
-  },
-  {
-    key: 'email',
-    header: 'Email',
-    width: 250,
-  },
+const columns: TableColumn[] = [
+    { key: "id", label: "ID", width: 80 },
+    { key: "name", label: "Name", width: 200 },
+    { key: "email", label: "Email", width: 250 },
+    { key: "status", label: "Status", width: 120 },
+];
+
+const data = [
+    { id: 1, name: "John Doe", email: "john@example.com", status: "Active" },
+    {
+        id: 2,
+        name: "Jane Smith",
+        email: "jane@example.com",
+        status: "Inactive",
+    },
+    // ... more data
 ];
 
 <InfiniteTable
-  data={users}
-  columns={columns}
-  height={400}
-  onLoadMore={() => loadMoreUsers()}
-  loading={loading}
+    data={data}
+    columns={columns}
+    height={400}
+    loading={false}
+    onRowClick={(row) => console.log("Row clicked:", row)}
 />;
 ```
 
 ## 🔧 Data Management
 
-### Data Management (Built-in)
+### Built-in TanStack Query
 
-TanStack Query is included and configured automatically with `SchillingWidgets`. No manual setup required!
-
-```tsx
-import { SchillingWidgets } from '@schilling-apps/schilling-widgets-system';
-
-function App() {
-  return (
-    <SchillingWidgets>
-      <MyApplication />
-    </SchillingWidgets>
-  );
-}
-```
-
-**Note**: If you're already using TanStack Query in your app, you can disable the internal provider:
+TanStack Query is included and configured automatically:
 
 ```tsx
-import { SchillingWidgets } from '@schilling-apps/schilling-widgets-system';
+import { SchillingWidgets } from "schilling-widgets-system";
 
 function App() {
-  return (
-    <SchillingWidgets disableQueryProvider={true}>
-      <MyApplication />
-    </SchillingWidgets>
-  );
+    return (
+        <SchillingWidgets>
+            {/* Your app components - Query client is automatically provided */}
+        </SchillingWidgets>
+    );
 }
 ```
 
 ### API Hooks
 
-```tsx
-import {
-  useApiQuery,
-  useApiMutation,
-} from '@schilling-apps/schilling-widgets-system';
+Built-in hooks for common API operations:
 
-// For GET queries
+```tsx
+import { useApiQuery, useApiMutation } from "schilling-widgets-system";
+
+// GET request
 function UserList() {
-  const { data, loading, error } = useApiQuery<User[]>({
-    queryKey: ['users'],
-    url: 'https://api.example.com/users',
-  });
+    const { data, loading, error } = useApiQuery<User[]>({
+        queryKey: ["users"],
+        queryFn: () => fetch("/api/users").then((res) => res.json()),
+    });
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <LoadingSpinner />;
+    if (error) return <div>Error: {error.message}</div>;
 
-  return (
-    <ul>
-      {data?.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
+    return (
+        <div>
+            {data?.map((user) => (
+                <div key={user.id}>{user.name}</div>
+            ))}
+        </div>
+    );
 }
 
-// For POST/PUT/DELETE mutations
+// POST/PUT/DELETE request
 function CreateUser() {
-  const { mutate, loading } = useApiMutation<User>({
-    url: 'https://api.example.com/users',
-    method: 'POST',
-    onSuccess: data => {
-      console.log('User created:', data);
-    },
-  });
+    const { mutate, loading } = useApiMutation<User>({
+        mutationFn: (userData) =>
+            fetch("/api/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData),
+            }).then((res) => res.json()),
+    });
 
-  const handleSubmit = (userData: Partial<User>) => {
-    mutate(userData);
-  };
+    const handleCreate = (userData: User) => {
+        mutate(userData, {
+            onSuccess: () => console.log("User created successfully"),
+            onError: (error) => console.error("Error creating user:", error),
+        });
+    };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {/* Form */}
-      <Button type='submit' disabled={loading}>
-        {loading ? 'Creating...' : 'Create User'}
-      </Button>
-    </form>
-  );
+    return (
+        <Button
+            onClick={() => handleCreate(newUser)}
+            disabled={loading}
+        >
+            {loading ? "Creating..." : "Create User"}
+        </Button>
+    );
 }
 ```
 
-## 🎨 Theme Customization
+## 🎨 Theme System
 
-### Theme Configuration
+### Theme Provider
+
+Configure themes for your application:
 
 ```tsx
-import {
-  configureTheme,
-  ThemeProvider,
-} from '@schilling-apps/schilling-widgets-system';
+import { ThemeProvider, useTheme } from "schilling-widgets-system";
 
-// Global configuration
-configureTheme({
-  useTailwind: true,
-  theme: 'dark',
-  customColors: {
-    primary: 'hsl(210 100% 50%)',
-    secondary: 'hsl(210 50% 90%)',
-  },
-});
-
-// Use with context
 function App() {
-  return (
-    <ThemeProvider defaultTheme='dark'>
-      <MyApplication />
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider
+            defaultTheme="light"
+            storageKey="my-app-theme"
+        >
+            <MyApp />
+        </ThemeProvider>
+    );
 }
-```
-
-### Theme Hook
-
-```tsx
-import { useTheme } from '@schilling-apps/schilling-widgets-system';
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-      {theme === 'light' ? '🌙' : '☀️'}
-    </Button>
-  );
+    return (
+        <Button
+            onClick={toggleTheme}
+            variant="outline"
+        >
+            {theme === "light" ? "🌙" : "☀️"}
+            {theme === "light" ? "Dark Mode" : "Light Mode"}
+        </Button>
+    );
 }
 ```
 
-## 📖 Complete Examples
+### Custom CSS Variables
 
-### Basic Example
+The theme system uses CSS variables that you can customize:
 
-```tsx
-import React from 'react';
-import {
-  SchillingWidgets,
-  ThemeProvider,
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Button,
-  Input,
-} from '@schilling-apps/schilling-widgets-system';
-
-function App() {
-  return (
-    <SchillingWidgets>
-      <ThemeProvider defaultTheme='light'>
-        <div className='container mx-auto p-4'>
-          <Card>
-            <CardHeader>
-              <CardTitle>My Application</CardTitle>
-              <CardDescription>
-                Built with Schilling Widgets System
-              </CardDescription>
-            </CardHeader>
-            <CardContent className='space-y-4'>
-              <Input placeholder='Enter your name' />
-              <Button>Submit</Button>
-            </CardContent>
-          </Card>
-        </div>
-      </ThemeProvider>
-    </SchillingWidgets>
-  );
+```css
+:root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
 }
 
-export default App;
-```
-
-### TaskManager Example
-
-```tsx
-import React, { useState, useCallback } from 'react';
-import {
-  TaskManager,
-  Task,
-  TaskStatus,
-} from '@schilling-apps/schilling-widgets-system';
-
-const SAMPLE_TASKS: Task[] = [
-  {
-    id: '1',
-    name: 'Implement authentication',
-    status: 'In progress',
-    reference: 'AUTH-001',
-    phase: 'Development',
-    expectedStart: '2025-01-01',
-    expectedDue: '2025-01-15',
-    assignee: 'John Doe',
-    priority: 'high',
-    progress: 75,
-    description: 'Implement JWT authentication system',
-    tags: ['auth', 'security'],
-  },
-  {
-    id: '2',
-    name: 'Design user interface',
-    status: 'Not started',
-    reference: 'UI-002',
-    phase: 'Design',
-    expectedStart: '2025-01-10',
-    expectedDue: '2025-01-20',
-    assignee: 'Jane Smith',
-    priority: 'medium',
-    progress: 0,
-    description: 'Create mockups and prototypes',
-    tags: ['ui', 'design'],
-  },
-];
-
-function TaskManagerDemo() {
-  const [tasks, setTasks] = useState<Task[]>(SAMPLE_TASKS);
-
-  const handleTaskUpdate = useCallback(
-    (taskId: string, updates: Partial<Task>) => {
-      setTasks(prevTasks =>
-        prevTasks.map(task =>
-          task.id === taskId ? { ...task, ...updates } : task
-        )
-      );
-    },
-    []
-  );
-
-  const handleTaskDelete = useCallback((taskId: string) => {
-    setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
-  }, []);
-
-  return (
-    <div className='p-6'>
-      <h1 className='text-2xl font-bold mb-6'>Task Manager</h1>
-      <TaskManager
-        tasks={tasks}
-        height={600}
-        enableInlineEdit={true}
-        enableRealTimeUpdates={true}
-        onTaskUpdate={handleTaskUpdate}
-        onTaskDelete={handleTaskDelete}
-        onRefresh={() => console.log('Refresh data')}
-      />
-    </div>
-  );
+.dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    /* ... other dark theme values */
 }
-
-export default TaskManagerDemo;
 ```
 
-## ✨ Why Choose Schilling Widgets System?
+## 🛠️ Development
 
-### 🚀 **Zero Configuration**
+### Development Environments
 
-- **Start coding immediately** - no build setup, no configuration files
-- **No dependency conflicts** - everything is bundled and tested together
-- **Works anywhere** - Next.js, Create React App, Vite, or any React project
+This package includes two development environments for testing:
 
-### 🎯 **Maximum Flexibility**
+- **CSS-based** (port 5173): Uses pre-compiled CSS utilities
+- **Tailwind-based** (port 5174): Uses Tailwind CSS directly
 
-- **Bring your own styles** - integrates with existing Tailwind setups
-- **Or use ours** - complete styling system included out of the box
-- **Progressive enhancement** - start simple, customize as needed
+Both environments are visually identical and include all examples.
 
-### 🛡️ **Production Ready**
+### Running Development Servers
 
-- **TypeScript first** - complete type safety and IDE support
-- **Thoroughly tested** - all components tested and documented
-- **Performance optimized** - tree-shaking, virtualization, and minimal bundle impact
-- **Accessibility compliant** - meets WCAG standards
+```bash
+# From project root
+npm run dev:css         # Start CSS-based environment
+npm run dev:tailwind    # Start Tailwind-based environment
 
-### 🔧 **Developer Experience**
+# Or use the provided scripts
+./scripts/LAUNCH-BOTH.bat     # Windows - launch both environments
+./scripts/TEST-FINAL.bat      # Windows - build and test everything
+```
 
-- **Instant IntelliSense** - comprehensive TypeScript definitions
-- **Rich documentation** - examples, API reference, and best practices
-- **Consistent API** - follows established patterns from Shadcn UI
-- **Modern tooling** - built with the latest React patterns and best practices
-
-## 🔨 Development and Build
-
-### Available Scripts
+### Building
 
 ```bash
 # Build the package
 npm run build
 
-# Development with watch mode
+# Build with watch mode
 npm run dev
 
-# Prepare for publication
-npm run prepublishOnly
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+npm run lint:fix
+
+# Formatting
+npm run format
+npm run format:check
+
+# Full validation
+npm run validate
 ```
 
-### Project Structure
+### Publishing
+
+```bash
+# Patch version
+npm run publish:patch
+
+# Minor version
+npm run publish:minor
+
+# Major version
+npm run publish:major
+
+# Or build and publish manually
+npm run prepublishOnly
+npm publish --access public
+```
+
+## 📁 Project Structure
 
 ```
 schilling-widgets-system/
 ├── src/
-│   ├── components/          # Basic UI components
+│   ├── components/          # UI Components
 │   │   ├── Button.tsx
 │   │   ├── Card.tsx
+│   │   ├── Dialog.tsx
 │   │   ├── Input.tsx
 │   │   ├── Accordion.tsx
 │   │   ├── AlertDialog.tsx
 │   │   ├── Avatar.tsx
 │   │   ├── Badge.tsx
 │   │   ├── Checkbox.tsx
-│   │   ├── Dialog.tsx
 │   │   ├── DropdownMenu.tsx
+│   │   ├── LoadingSpinner.tsx
 │   │   ├── Select.tsx
 │   │   ├── Tabs.tsx
+│   │   ├── ThemeProvider.tsx
 │   │   ├── Tooltip.tsx
-│   │   ├── LoadingSpinner.tsx
-│   │   └── ThemeProvider.tsx
-│   ├── widgets/            # Advanced widgets
-│   │   ├── InfiniteTable.tsx
-│   │   └── TaskManager.tsx
-│   ├── hooks/              # Custom hooks
-│   │   ├── QueryProvider.tsx
-│   │   └── useApi.ts
-│   ├── utils/              # Utilities
+│   │   └── SchillingWidgets.tsx
+│   ├── widgets/            # Advanced Widgets
+│   │   ├── TaskManager.tsx
+│   │   └── InfiniteTable.tsx
+│   ├── hooks/             # Custom Hooks
+│   │   ├── useApi.ts
+│   │   └── QueryProvider.tsx
+│   ├── utils/             # Utilities
 │   │   └── cn.ts
-│   ├── styles/             # Styles
+│   ├── styles/            # Styling
 │   │   ├── globals.css
-│   │   ├── css-only.css
-│   │   └── index.ts
-│   ├── examples/           # Usage examples
-│   │   ├── comprehensive-example.tsx
-│   │   ├── infinite-table-example.tsx
-│   │   └── task-manager-example.tsx
+│   │   ├── schilling-widgets.css
+│   │   └── design-system.ts
 │   └── index.ts           # Main exports
-├── dist/                  # Compiled files
-│   ├── index.cjs.js
-│   ├── index.esm.js
-│   ├── index.d.ts
-│   └── styles.css
-├── docs/                  # Additional documentation
+├── develoments/           # Development environments
+│   ├── css-based/         # CSS-based testing
+│   │   └── src/examples/  # Example components
+│   └── tailwind-based/    # Tailwind-based testing
+│       └── src/examples/  # Example components
+├── scripts/               # Build scripts
+│   ├── LAUNCH-BOTH.bat
+│   ├── TEST-FINAL.bat
+│   └── publish.bat
+├── dist/                  # Built package
 ├── package.json
-├── tsconfig.json
-├── rollup.config.js
-├── tailwind.config.js
 └── README.md
 ```
 
+## 🔄 Integration Options
+
+### With Existing Tailwind CSS
+
+If your project already uses Tailwind CSS:
+
+```javascript
+// tailwind.config.js
+module.exports = {
+    content: [
+        "./src/**/*.{js,ts,jsx,tsx}",
+        "./node_modules/schilling-widgets-system/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {
+            // Your custom theme extensions
+        },
+    },
+};
+```
+
+### With Existing TanStack Query
+
+If you already have TanStack Query configured:
+
+```tsx
+import { SchillingWidgets } from "schilling-widgets-system";
+
+function App() {
+    return (
+        <SchillingWidgets disableQueryProvider={true}>
+            {/* Your components */}
+        </SchillingWidgets>
+    );
+}
+```
+
+### CSS-only Mode
+
+For projects without Tailwind CSS:
+
+```tsx
+import { configureTheme } from "schilling-widgets-system";
+
+// Configure to use CSS-only mode
+configureTheme({ useTailwind: false });
+```
+
+## 🔗 Links and Resources
+
+- **NPM Package**: `schilling-widgets-system`
+- **GitHub**: [Repository Link]
+- **Documentation**: This README
+- **Examples**: Available in `develoments/` folders
+- **TypeScript**: Full type definitions included
+
 ## 🤝 Contributing
 
-### Adding New Components
-
-1. **Install required dependencies**
-
-```bash
-npm install @radix-ui/react-[component-name]
-```
-
-2. **Create component file**
-
-```tsx
-// src/components/NewComponent.tsx
-import React from 'react';
-import { cn } from '../utils/cn';
-
-interface NewComponentProps {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-export const NewComponent = React.forwardRef<HTMLDivElement, NewComponentProps>(
-  ({ className, children, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={cn('schilling-new-component', className)}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  }
-);
-
-NewComponent.displayName = 'NewComponent';
-```
-
-3. **Export component**
-
-```tsx
-// src/index.ts
-export { NewComponent } from './components/NewComponent';
-export type { NewComponentProps } from './components/NewComponent';
-```
-
-4. **Build package**
-
-```bash
-npm run build
-```
-
-### Available Radix UI Components
-
-- \*\*: `@radix-ui/react-dialog`
-- \*\*: `@radix-ui/react-select`
-- ox\*\*: `@radix-ui/react-checkbox`
-- \*\*: `@radix-ui/react-switch`
-- ialog\*\*: `@radix-ui/react-alert-dialog`
-- wnMenu\*\*: `@radix-ui/react-dropdown-menu`
-- \*: `@radix-ui/react-tabs`
-- p\*\*: `@radix-ui/react-tooltip`
-- r\*\*: `@radix-ui/react-popover`
-- ion\*\*: `@radix-ui/react-accordion`
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-MIT License - see LICENSE file for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🆘 Support
 
-To report issues or request features:
+For questions, issues, or feature requests:
 
-1. Create an issue in the repository
-2. Include code examples when possible
-3. Specify the package version you're using
-4. Describe expected vs. actual behavior
-
-## 🔄 Changelog
-
-### v1.0.0
-
-- l implementation with all basic components
-- t for Tailwind CSS and CSS-only
-- nager widget with advanced features
-- teTable widget with virtualization
-- te theme system
-- ck Query integration
-- te documentation and examples
-
-## �️ Development & Testing
-
-This package includes two development environments for testing components:
-
-### CSS-Based Development Environment
-
-Located in `./develoments/css-based/` - Tests components without Tailwind CSS dependency:
-
-```bash
-cd develoments/css-based
-npm install
-npm run dev
-```
-
-This environment demonstrates:
-
-- ✅ **CSS-only styling** - Components work without Tailwind
-- ✅ **Global CSS variables** - Theme customization through CSS
-- ✅ **Component testing** - All examples are included
-- ✅ **Zero configuration** - No additional setup required
-
-### Tailwind-Based Development Environment
-
-Located in `./develoments/tailwind-based/` - Tests components with Tailwind CSS integration:
-
-```bash
-cd develoments/tailwind-based
-npm install
-npm run dev
-```
-
-This environment demonstrates:
-
-- ✅ **Tailwind integration** - Components work with existing Tailwind setup
-- ✅ **Custom configuration** - Enhanced styling with Tailwind utilities
-- ✅ **Theme customization** - Custom color schemes and styling
-- ✅ **Performance optimization** - Tree-shaking and utility-first approach
-
-Both environments include all component examples from `src/examples/` and demonstrate the flexibility of the widget system.
-
-## �📚 Documentation
-
-### 📖 Complete Guides
-
-- **[📖 Complete Guide](./docs/COMPLETE_GUIDE.md)** - Everything you need: installation, integration, migration, and troubleshooting
-- **[📚 API Documentation](./docs/UNIFIED_DOCUMENTATION.md)** - Complete component reference and advanced examples
-- **[📁 Documentation Index](./docs/README.md)** - Quick navigation to all guides
-
-### 🔗 External Resources
-
-- **[React](https://reactjs.org/docs)** - The React library
-- **[TypeScript](https://www.typescriptlang.org/docs)** - TypeScript documentation
-- **[Tailwind CSS](https://tailwindcss.com/docs)** - Utility-first CSS framework
-- **[TanStack Query](https://tanstack.com/query/latest)** - Data fetching library
-- **[Radix UI](https://www.radix-ui.com/docs)** - Unstyled, accessible components
-- **[Lucide Icons](https://lucide.dev/icons)** - Beautiful & consistent icons
-
-### 💡 Project Examples
-
-The examples included in the package demonstrate:
-
-- **Comprehensive Example**: Usage of all components together
-- **TaskManager Example**: Complete task management widget implementation
-- **InfiniteTable Example**: Data table with virtualization and public API integration
+- Open an issue on GitHub
+- Check the examples in `develoments/` folders
+- Review the TypeScript definitions for API details
 
 ---
 
-**Developed by Schilling Apps** - A complete solution for your React applications.
+**Made with ❤️ by Edd Remonts and the Schilling Apps team**

@@ -50,6 +50,12 @@
         --ring: 217.2 91.2% 59.8%; /* Bright blue focus ring */
     }
 
+    /* Critical: Prevent body scroll when dialog is open */
+    body[data-dialog-open="true"] {
+        overflow: hidden;
+    }
+
+    /* Base styles for consistent rendering across both environments */
     * {
         border-color: hsl(var(--border));
     }
@@ -57,26 +63,434 @@
     body {
         background-color: hsl(var(--background));
         color: hsl(var(--foreground));
-        font-family:
-            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            "Helvetica Neue", Arial, sans-serif;
+        font-feature-settings:
+            "rlig" 1,
+            "calt" 1;
     }
+}
 
-    /* Dialog scroll prevention */
-    .dialog-open {
-        overflow: hidden;
-    }
-
-    /* Dialog overlay improvements */
-    [data-radix-portal] {
+/* Dialog overlay and animations - Must work identically in both environments */
+@layer components {
+    .dialog-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
+        inset: 0;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
-    /* Prevent background scroll when dialog is open */
-    body:has([data-state="open"]) {
+    /* Card component */
+    .card {
+        border-radius: calc(var(--radius) - 2px);
+        border: 1px solid hsl(var(--border));
+        background-color: hsl(var(--card));
+        color: hsl(var(--card-foreground));
+        box-shadow:
+            0 1px 3px 0 rgba(0, 0, 0, 0.1),
+            0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.025em;
+    }
+
+    .card-description {
+        font-size: 0.875rem;
+        color: hsl(var(--muted-foreground));
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        padding-top: 0;
+    }
+
+    .card-footer {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        padding-top: 0;
+    }
+
+    /* Button component */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: calc(var(--radius) - 2px);
+        font-size: 0.875rem;
+        font-weight: 500;
+        height: 2.5rem;
+        padding: 0 1rem;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+
+    .btn:focus-visible {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+    }
+
+    .btn:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    /* Button variants */
+    .btn-primary {
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+    }
+
+    .btn-primary:hover {
+        background-color: hsl(var(--primary) / 0.9);
+    }
+
+    .btn-destructive {
+        background-color: hsl(var(--destructive));
+        color: hsl(var(--destructive-foreground));
+    }
+
+    .btn-destructive:hover {
+        background-color: hsl(var(--destructive) / 0.9);
+    }
+
+    .btn-outline {
+        border: 1px solid hsl(var(--border));
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+    }
+
+    .btn-outline:hover {
+        background-color: hsl(var(--accent));
+        color: hsl(var(--accent-foreground));
+    }
+
+    .btn-secondary {
+        background-color: hsl(var(--secondary));
+        color: hsl(var(--secondary-foreground));
+    }
+
+    .btn-secondary:hover {
+        background-color: hsl(var(--secondary) / 0.8);
+    }
+
+    .btn-ghost {
+        color: hsl(var(--foreground));
+    }
+
+    .btn-ghost:hover {
+        background-color: hsl(var(--accent));
+        color: hsl(var(--accent-foreground));
+    }
+
+    .btn-link {
+        color: hsl(var(--primary));
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .btn-link:hover {
+        text-decoration: none;
+    }
+
+    /* Button sizes */
+    .btn-sm {
+        height: 2.25rem;
+        border-radius: calc(var(--radius) - 2px);
+        padding: 0 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .btn-lg {
+        height: 2.75rem;
+        border-radius: calc(var(--radius) - 2px);
+        padding: 0 2rem;
+    }
+
+    .btn-icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: 0;
+    }
+
+    /* Badge component */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 9999px;
+        border: 1px solid transparent;
+        padding: 0.125rem 0.625rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: all 0.2s;
+        cursor: default;
+    }
+
+    .badge-default {
+        border-color: transparent;
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+    }
+
+    .badge-secondary {
+        border-color: transparent;
+        background-color: hsl(var(--secondary));
+        color: hsl(var(--secondary-foreground));
+    }
+
+    .badge-destructive {
+        border-color: transparent;
+        background-color: hsl(var(--destructive));
+        color: hsl(var(--destructive-foreground));
+    }
+
+    .badge-outline {
+        color: hsl(var(--foreground));
+        border-color: hsl(var(--border));
+    }
+
+    /* Input component */
+    .input {
+        display: flex;
+        height: 2.5rem;
+        width: 100%;
+        border-radius: calc(var(--radius) - 2px);
+        border: 1px solid hsl(var(--border));
+        background-color: hsl(var(--background));
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        transition: all 0.2s;
+        outline: none;
+    }
+
+    .input:focus {
+        border-color: hsl(var(--ring));
+        box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+    }
+
+    .input::placeholder {
+        color: hsl(var(--muted-foreground));
+    }
+
+    .input:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    /* Select component */
+    .select {
+        position: relative;
+        display: inline-block;
+    }
+
+    .select-trigger {
+        display: flex;
+        height: 2.5rem;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: calc(var(--radius) - 2px);
+        border: 1px solid hsl(var(--border));
+        background-color: hsl(var(--background));
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s;
+    }
+
+    .select-trigger:focus {
+        border-color: hsl(var(--ring));
+        box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+    }
+
+    .select-trigger:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    /* Checkbox component */
+    .checkbox {
+        height: 1rem;
+        width: 1rem;
+        flex-shrink: 0;
+        border-radius: 0.125rem;
+        border: 1px solid hsl(var(--primary));
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .checkbox:checked {
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+    }
+
+    .checkbox:focus-visible {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+    }
+
+    .checkbox:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    /* Avatar component */
+    .avatar {
+        position: relative;
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        flex-shrink: 0;
         overflow: hidden;
+        border-radius: 50%;
+    }
+
+    .avatar-image {
+        aspect-ratio: 1;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .avatar-fallback {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: hsl(var(--muted));
+        color: hsl(var(--muted-foreground));
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    /* LoadingSpinner component */
+    .loading-spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid hsl(var(--muted));
+        border-radius: 50%;
+        border-top-color: hsl(var(--primary));
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    /* Tabs component */
+    .tabs-list {
+        display: inline-flex;
+        height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: calc(var(--radius) - 2px);
+        background-color: hsl(var(--muted));
+        padding: 0.25rem;
+        color: hsl(var(--muted-foreground));
+    }
+
+    .tabs-trigger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        border-radius: calc(var(--radius) - 4px);
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .tabs-trigger:focus-visible {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+    }
+
+    .tabs-trigger:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .tabs-trigger[data-state="active"] {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        box-shadow:
+            0 1px 3px 0 rgba(0, 0, 0, 0.1),
+            0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    .tabs-content {
+        margin-top: 0.5rem;
+        border-radius: calc(var(--radius) - 2px);
+        outline: none;
+    }
+
+    .tabs-content:focus-visible {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+    }
+}
+
+/* Keyframes for animations */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes slideOutToTop {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
     }
 }

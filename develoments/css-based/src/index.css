@@ -47,6 +47,19 @@
     --ring: 217.2 91.2% 59.8%; /* Bright blue focus ring */
 }
 
+/* Critical: Prevent body scroll when dialog is open */
+body[data-scroll-locked] {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Radix UI Portal and Dialog improvements */
+[data-radix-portal] {
+    z-index: 9999 !important;
+}
+
 * {
     border-color: hsl(var(--border));
 }
@@ -299,24 +312,6 @@ body {
     border: 0;
 }
 
-/* Dialog scroll prevention */
-.dialog-open {
-    overflow: hidden;
-}
-
-/* Dialog overlay improvements */
-[data-radix-portal] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-}
-
-/* Prevent background scroll when dialog is open */
-body:has([data-state="open"]) {
-    overflow: hidden;
-}
-
 /* Additional Tailwind-like utilities for perfect parity */
 .h-4 {
     height: 1rem;
@@ -435,20 +430,41 @@ body:has([data-state="open"]) {
 .pointer-events-none {
     pointer-events: none;
 }
-.rounded-sm {
-    border-radius: calc(var(--radius) - 4px);
-}
 
-/* Animation utilities */
+/* Animation utilities for Dialog */
 .data-\[state\=open\]\:animate-in[data-state="open"] {
     animation:
         fadeIn 200ms ease-out,
-        zoomIn 200ms ease-out;
+        scaleIn 200ms ease-out;
 }
 .data-\[state\=closed\]\:animate-out[data-state="closed"] {
     animation:
         fadeOut 200ms ease-out,
-        zoomOut 200ms ease-out;
+        scaleOut 200ms ease-out;
+}
+.data-\[state\=closed\]\:fade-out-0[data-state="closed"] {
+    animation: fadeOut 200ms ease-out;
+}
+.data-\[state\=open\]\:fade-in-0[data-state="open"] {
+    animation: fadeIn 200ms ease-out;
+}
+.data-\[state\=closed\]\:zoom-out-95[data-state="closed"] {
+    animation: zoomOut95 200ms ease-out;
+}
+.data-\[state\=open\]\:zoom-in-95[data-state="open"] {
+    animation: zoomIn95 200ms ease-out;
+}
+.data-\[state\=closed\]\:slide-out-to-left-1\/2[data-state="closed"] {
+    animation: slideOutLeft 200ms ease-out;
+}
+.data-\[state\=closed\]\:slide-out-to-top-\[48\%\][data-state="closed"] {
+    animation: slideOutTop 200ms ease-out;
+}
+.data-\[state\=open\]\:slide-in-from-left-1\/2[data-state="open"] {
+    animation: slideInLeft 200ms ease-out;
+}
+.data-\[state\=open\]\:slide-in-from-top-\[48\%\][data-state="open"] {
+    animation: slideInTop 200ms ease-out;
 }
 
 @keyframes fadeIn {
@@ -469,7 +485,25 @@ body:has([data-state="open"]) {
     }
 }
 
-@keyframes zoomIn {
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes zoomIn95 {
     from {
         transform: translateX(-50%) translateY(-50%) scale(0.95);
     }
@@ -478,11 +512,47 @@ body:has([data-state="open"]) {
     }
 }
 
-@keyframes zoomOut {
+@keyframes zoomOut95 {
     from {
         transform: translateX(-50%) translateY(-50%) scale(1);
     }
     to {
         transform: translateX(-50%) translateY(-50%) scale(0.95);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50%) translateY(-50%) translateX(-2px);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(-50%) translateY(-50%) translateX(0);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) translateX(-2px);
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateX(-50%) translateY(-50%) translateY(-2px);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) translateY(0);
+    }
+}
+
+@keyframes slideOutTop {
+    from {
+        transform: translateX(-50%) translateY(-50%) translateY(0);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) translateY(-2px);
     }
 }
